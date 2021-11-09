@@ -11,7 +11,7 @@ Proyecto Mongo-Express-ReactJS-NodeJS-GraphQL
 | `2` | Rafael Alejandro Lancheros R.        |
 | `3` | Javier Esteban Romero Medina         |
 | `4` | Diana Marcela Pinilla Ortegon        |
-| `5` |                                      |
+| `5` | Leidy Viviana Gallardo Rico          |
 
 
 ### Link al tablero de Trello
