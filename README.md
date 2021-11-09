@@ -1,7 +1,6 @@
 ### Gestor de proyectos - Team Legacy - Ciclo 4
 Proyecto Mongo-Express-ReactJS-NodeJS-GraphQL
 
-### Grupo 10 - Ciclo 3 MinTic - WhatsApp
 
 #### Colaboradores – Sprint 1
 
@@ -10,7 +9,7 @@ Proyecto Mongo-Express-ReactJS-NodeJS-GraphQL
 | --- | ------------------------------------ |
 | `1` | Roger Alexis Valencia Garcia.        |
 | `2` | Rafael Alejandro Lancheros R.        |
-| `3` |                                      |
+| `3` | Diana Marcela Pinilla Ortegon        |
 | `4` |                                      |
 | `5` |                                      |
 
