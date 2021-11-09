@@ -9,8 +9,8 @@ Proyecto Mongo-Express-ReactJS-NodeJS-GraphQL
 | --- | ------------------------------------ |
 | `1` | Roger Alexis Valencia Garcia.        |
 | `2` | Rafael Alejandro Lancheros R.        |
-| `3` | Diana Marcela Pinilla Ortegon        |
-| `4` |                                      |
+| `3` | Javier Esteban Romero Medina         |
+| `4` | Diana Marcela Pinilla Ortegon        |
 | `5` |                                      |
 
 
