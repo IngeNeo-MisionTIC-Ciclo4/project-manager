@@ -9,7 +9,7 @@ Proyecto Mongo-Express-ReactJS-NodeJS-GraphQL
 |     | Colaboradores                        |
 | --- | ------------------------------------ |
 | `1` | Roger Alexis Valencia Garcia.        |
-| `2` |                                      |
+| `2` | Rafael Alejandro Lancheros R.        |
 | `3` |                                      |
 | `4` |                                      |
 | `5` |                                      |
