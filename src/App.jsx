@@ -5,6 +5,7 @@ import Perfil from 'pages/admin/Perfil';
 import MisProyectos from 'pages/admin/MisProyectos';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'styles/styles.css';
+import Proyecto from 'pages/admin/Proyecto';
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
 					</Route>
 					<Route path='/admin/misproyectos'>
 						<MisProyectos />
+					<Route path='/proyecto'>
+						<Proyecto/>
 					</Route>
 					</Switch>
 				</Router>
