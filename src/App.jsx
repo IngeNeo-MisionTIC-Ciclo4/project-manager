@@ -3,6 +3,7 @@ import Registro from 'pages/auth/Registro';
 import Usuarios from 'pages/admin/Usuarios';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'styles/styles.css';
+import Proyecto from 'pages/admin/Proyecto';
 
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
 					</Route>
 					<Route path='/usuarios'>
 						<Usuarios />
+					</Route>
+					<Route path='/proyecto'>
+						<Proyecto/>
 					</Route>
 					</Switch>
 				</Router>
