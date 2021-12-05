@@ -6,16 +6,17 @@ import MisProyectos from 'pages/admin/MisProyectos';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'styles/styles.css';
 import Proyecto from 'pages/admin/Proyecto';
+import NuevoProyecto from 'pages/admin/NuevoProyecto'
 
 
 function App() {
 	return (
 		<div className='App'>
 			<Router>
-					<Switch>
-						<Route path='/login'>
-							<Login />
-						</Route>
+				<Switch>
+					<Route path='/login'>
+						<Login />
+					</Route>
 					<Route path='/registro'>
 						<Registro />
 					</Route>
@@ -27,11 +28,15 @@ function App() {
 					</Route>
 					<Route path='/admin/misproyectos'>
 						<MisProyectos />
-					<Route path='/proyecto'>
+					</Route>
+					<Route path='/admin/proyecto'>
 						<Proyecto/>
 					</Route>
-					</Switch>
-				</Router>
+					<Route path='/admin/proyecto'>
+						<NuevoProyecto />
+					</Route>
+				</Switch>
+			</Router>
 		</div>
 	);
 }
