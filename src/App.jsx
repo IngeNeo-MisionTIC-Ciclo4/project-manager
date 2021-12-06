@@ -6,7 +6,7 @@ import MisProyectos from 'pages/admin/MisProyectos';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'styles/styles.css';
 import Proyecto from 'pages/admin/Proyecto';
-import NuevoProyecto from 'pages/admin/NuevoProyecto'
+import AdminLayout from './Layouts/admin';
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
 					<Route path='/registro'>
 						<Registro />
 					</Route>
+					<AdminLayout>
 					<Route path='/admin/usuarios'>
 						<Usuarios />
 					</Route>
@@ -32,9 +33,7 @@ function App() {
 					<Route path='/admin/proyecto'>
 						<Proyecto/>
 					</Route>
-					<Route path='/admin/proyecto'>
-						<NuevoProyecto />
-					</Route>
+					</AdminLayout>
 				</Switch>
 			</Router>
 		</div>

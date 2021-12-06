@@ -1,8 +1,9 @@
+
 import React from "react";
 
 const MisProyectos = () => {
     return (
-        <div className="flex flex-col items-center min-h-screen px-4 py-2 bg-white sm:px-6 lg:px-8 ">
+			<div className="flex flex-col items-center min-h-screen px-4 py-2 bg-white sm:px-6 lg:px-8 ">
             <h2 className="py-10 mt-6 text-4xl font-bold text-center text-red-600">
 				Mis Proyectos
 			</h2>
