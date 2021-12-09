@@ -7,7 +7,6 @@ import MisProyectos from 'pages/admin/MisProyectos';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import 'styles/styles.css';
-import Proyecto from 'pages/admin/Proyecto';
 import AdminLayout from './Layouts/admin';
 
 const httpLink = createHttpLink({
@@ -24,33 +23,34 @@ function App() {
 	return (
 		<div className='App'>
 			<ApolloProvider client={client}>
-			<Router>
-				<Switch>
-					<Route path='/login'>
-						<Login />
-					</Route>
-					<Route path='/registro'>
-						<Registro />
-					</Route>
-					<AdminLayout>
-					  <Route path='/admin/usuarios'>
-						  <Usuarios />
-					  </Route>
-					  <Route path='/proyecto'>
-						  <Proyecto />
-					  </Route>
-				    <Route path='/admin/perfil'>
-						  <Perfil />
-					  </Route>
-					  <Route path='/admin/misproyectos'>
-						  <MisProyectos />
-					  </Route>
-					  <Route path='/admin/proyecto'>
-						  <Proyecto/>
-					  </Route>
-					</AdminLayout>
-				</Switch>
-			</Router>
+				<Router>
+					<Switch>
+						<Route path='/login'>
+							<Login />
+						</Route>
+						<Route path='/registro'>
+							<Registro />
+						</Route>
+						<AdminLayout>
+							<Route path='/admin/usuarios'>
+								<Usuarios />
+							</Route>
+							<Route path='/proyecto'>
+								<Proyecto />
+							</Route>
+							<Route path='/admin/perfil'>
+								<Perfil />
+							</Route>
+							<Route path='/admin/misproyectos'>
+								<MisProyectos />
+							</Route>
+							<Route path='/admin/proyecto'>
+								<Proyecto />
+							</Route>
+						</AdminLayout>
+					</Switch>
+				</Router>
+			</ApolloProvider>
 		</div>
 	);
 }

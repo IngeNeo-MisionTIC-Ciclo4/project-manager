@@ -10,7 +10,6 @@ import { GET_USUARIOS } from '../../graphql/usuarios/queries';
 import DropDown from "../../components/Dropdown";
 import ReactLoading from 'react-loading';
 
-
 const Proyecto = () => {
 
 	const { form, formData, updateFormData } = useFormData();
@@ -62,7 +61,7 @@ const Proyecto = () => {
 						</div>
 						<div className="grid grid-cols-2 gap-5 rounded-md">
 								<label htmlFor="nombre"> Nombre proyecto
-								<input name= "nombreproyecto" type="text" required={true}			
+								<input name= "nombreproyecto" type="text" required={true}
 											className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
 											placeholder="Nombre proyecto"/>
 								</label>
