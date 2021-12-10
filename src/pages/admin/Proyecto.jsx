@@ -72,7 +72,7 @@ const Proyecto = () => {
 								</label>
 						</div>
 						<div className="grid grid-cols-1 rounded-md">
-							<DropDown label='Líder' options={listaUsuarios} name='lider' required={true} />
+							<DropDown label='Líder' options={listaUsuarios} name='lider' required={false} />
 						</div>
 						<Objetivos />
 						<div className="grid grid-cols-1 py-4 rounded-md">

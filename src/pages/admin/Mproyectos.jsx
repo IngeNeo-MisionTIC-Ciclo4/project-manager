@@ -15,136 +15,30 @@ import { AccordionStyled, AccordionSummaryStyled,	AccordionDetailsStyled } from 
 import ReactLoading from 'react-loading';
 
 const Mproyectos = () => {
-	const { data: query, loading, error } = useQuery(PROYECTOS);
+	const { data: queryData, loading, error } = useQuery(PROYECTOS);
 
 	useEffect(() => {
-		console.log('datos proyecto', query);
-	}, [query]);
+		console.log('datos proyecto', queryData);
+	}, [queryData]);
 
-
-	const queryData = [
-		{
-			"data": {
-				"Proyectos": [
-					{
-						"_id": "61a3ca8950a90f1761a10b2b",
-						"nombreproyecto": "Proyecto Uno Editado",
-						"estado": "Inactivo",
-						"objetivos": [
-							{
-								"descripcion": "Objetivo general",
-								"tipo": "General"
-							},
-							{
-								"descripcion": "Objetivo especifico",
-								"tipo": "Especifico"
-							}
-						],
-						"lider": {
-							"_id": "61a3c89150a90f1761a10b17",
-							"correo": "francoralf@gmail.com"
-						},
-						"inscripciones": [
-							{
-								"estado": "Rechazado",
-								"estudiante": {
-									"_id": "61a3c81a50a90f1761a10b15"
-								}
-							},
-							{
-								"estado": "Pendiente",
-								"estudiante": {
-									"_id": "61a3c81a50a90f1761a10b15"
-								}
-							}
-						]
-					},
-					{
-						"_id": "61a3cc3050a90f1761a10b49",
-						"nombreproyecto": "Proyecto Dos",
-						"estado": "Activo",
-						"objetivos": [
-							{
-								"descripcion": "Objetivo general 2",
-								"tipo": "General"
-							},
-							{
-								"descripcion": "Objetivo Especifico 1",
-								"tipo": "Especifico"
-							},
-							{
-								"descripcion": "Objetivo Especifico 2",
-								"tipo": "Especifico"
-							}
-						],
-						"lider": {
-							"_id": "61a3c90f50a90f1761a10b1b",
-							"correo": "Javier.rom1911@gmail.com"
-						},
-						"inscripciones": [
-							{
-								"estado": "Rechazado",
-								"estudiante": {
-									"_id": "61a3c81a50a90f1761a10b15"
-								}
-							}
-						]
-					},
-					{
-						"_id": "61a3ecf6eb01376edcc4a16f",
-						"nombreproyecto": "Proyecto Tres",
-						"estado": "Activo",
-						"objetivos": [],
-						"lider": {
-							"_id": "61a3c89150a90f1761a10b17",
-							"correo": "francoralf@gmail.com"
-						},
-						"inscripciones": []
-					},
-					{
-						"_id": "61a84414ac00ce52e1c6c8d1",
-						"nombreproyecto": "Proyecto Entrega",
-						"estado": "Activo",
-						"objetivos": [],
-						"lider": {
-							"_id": "61a3c89150a90f1761a10b17",
-							"correo": "francoralf@gmail.com"
-						},
-						"inscripciones": [
-							{
-								"estado": "Pendiente",
-								"estudiante": {
-									"_id": "61a3c81a50a90f1761a10b15"
-								}
-							}
-						]
-					}
-				]
-			}
-		}
-	];
-
-
-
-
-
-
-	if (loading) return <ReactLoading type="spinningBubbles" color="#0040FF" height={667} width={375} />;
+	if (loading) return <ReactLoading type="spinningBubbles" color="#0040FF" height={667} width={375} />
+	if (error) return <div className='text-2xl font-bold bg-red-700'>A ocurrido un error en la consulta con la base de datos </div>
 
 	if (queryData.Proyectos) {
 		return (
 			<div className='flex flex-col p-10'>
-				<div className='flex items-center justify-center w-full'>
-					<h1 className='text-2xl font-bold text-gray-900'>Lista de Proyectos</h1>
+				<div className='flex items-center justify-center w-full rounded-full'>
+					<h1 className='text-2xl font-bold text-blue-800'>Lista de Proyectos</h1>
 				</div>
 				{/* <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}> */}
 					<div className='self-end my-2'>
-						<button className='p-2 bg-indigo-500 rounded-lg shadow-lg text-gray-50 hover:bg-indigo-400'>
-							<Link to='/proyectos/nuevo'>Crear nuevo proyecto</Link>
+						<button className='p-2 bg-blue-500 rounded-lg shadow-lg text-gray-50 hover:bg-blue-400'>
+							<Link to='/admin/proyecto/'>Crear nuevo proyecto</Link>
 						</button>
 					</div>
 				{/* </PrivateComponent> */}
 				{queryData.Proyectos.map((proyecto) => {
+
 					return <AccordionProyecto proyecto={proyecto} />;
 				})}
 			</div>
