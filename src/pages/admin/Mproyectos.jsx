@@ -29,7 +29,7 @@ const Mproyectos = () => {
 	if (queryData.Proyectos) {
 		return (
 			<div className="flex flex-col items-center min-h-screen py-2 bg-white">
-            <div>
+						<div>
 				<img src={Banner} alt="Mproyecto" className='w-full mb-10 h-30'></img>
 			</div>
 				{/* <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}> */}

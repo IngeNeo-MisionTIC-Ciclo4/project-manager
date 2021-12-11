@@ -7,7 +7,6 @@ import { useAuth } from 'context/authContext';
 import { useNavigate } from 'react-router-dom';
 import ButtonLoading from '../../components/ButtonLoading';
 
-
 const Login = () => {
 
 	const navigate = useNavigate();

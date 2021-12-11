@@ -52,9 +52,9 @@ const Proyecto = () => {
 
 		return (
 		<div className="flex flex-col items-center min-h-screen py-2 bg-white">
-            <div>
-				<img src={Banner} alt="Proyecto" className='mb-10 w-full h-30'></img>
-		</div>	
+						<div>
+				<img src={Banner} alt="Proyecto" className='w-full mb-10 h-30'></img>
+		</div>
 				<form ref={form} onChange={updateFormData} onSubmit={submitForm} className="p-5 mt-8 space-y-6 bg-white rounded-lg shadow-lg">
 						<div className="grid grid-cols-3 gap-5 text-center rounded-md">
 							<div></div>
