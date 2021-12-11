@@ -77,16 +77,16 @@ function App() {
 							<Routes>
 								<Route path='/login' element={<Login />} />
 								<Route path='/registro' element={<Registro />} />
-								<AdminLayout>
-								<Route path='/perfil' element={<Perfil />} />
-								<Route path='/admin/usuarios' element={<Usuarios />} />
+								<Route path='/' element={<AdminLayout />}>
+									<Route path='/perfil' element={<Perfil />} />
+									<Route path='/admin/usuarios' element={<Usuarios />} />
 									<Route path='/admin/proyecto' element={<Proyecto />} />
 									<Route path='/admin/mproyectos' element={<Mproyectos />} />
 									<Route path='/admin/misproyectos' element={<MisProyectos />} />
 									<Route path='/admin/musuarios' element={<Musuarios />} />
 									<Route path='/admin/mavances' element={<Mavances />} />
 									<Route path='/admin/minscripciones' element={<Minscripciones/>} />
-								</AdminLayout>
+								</Route>
 								</Routes>
 						</BrowserRouter>
 					</UserContext.Provider>

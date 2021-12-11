@@ -15,6 +15,7 @@ import { AccordionStyled, AccordionSummaryStyled,	AccordionDetailsStyled } from 
 import ReactLoading from 'react-loading';
 import Banner from "../../media/banner-admproyectos.png";
 
+
 const Mproyectos = () => {
 	const { data: queryData, loading, error } = useQuery(PROYECTOS);
 
@@ -28,8 +29,8 @@ const Mproyectos = () => {
 	if (queryData.Proyectos) {
 		return (
 			<div className="flex flex-col items-center min-h-screen py-2 bg-white">
-            <div>
-				<img src={Banner} alt="Mproyecto" className='mb-10 w-full h-30'></img>
+						<div>
+				<img src={Banner} alt="Mproyecto" className='w-full mb-10 h-30'></img>
 			</div>
 				{/* <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}> */}
 					<div className='self-end my-2'>

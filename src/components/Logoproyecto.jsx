@@ -3,7 +3,7 @@ import Logo from 'media/Logo-uni.png';
 
 //Componente para la carga del logo de la aplicación
 const Logoproyecto = () => {
-	return <img className='logo mx-auto pb-2' src={Logo} alt='Proyecto' />;
+	return <img className='pb-2 mx-auto logo' src={Logo} alt='Proyecto' />;
 };
 
 export default Logoproyecto;
