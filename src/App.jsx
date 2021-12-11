@@ -74,11 +74,13 @@ function App() {
 							<Routes>
 								<Route path='/login' element={<Login />} />
 								<Route path='/registro' element={<Registro />} />
+								<AdminLayout>
 								<Route path='/perfil' element={<Perfil />} />
 								<Route path='/admin/usuarios' element={<Usuarios />} />
 									<Route path='/admin/proyecto' element={<Proyecto />} />
 									<Route path='/admin/mproyectos' element={<Mproyectos />} />
 									<Route path='/admin/misproyectos' element={<MisProyectos />} />
+								</AdminLayout>
 								</Routes>
 						</BrowserRouter>
 					</UserContext.Provider>

@@ -7,7 +7,7 @@ import DropDown from "../../components/Dropdown";
 import ReactLoading from 'react-loading';
 import { CREAR_USUARIO } from 'graphql/usuarios/mutations'
 import { toast } from 'react-toastify';
-
+import Banner from "../../media/banner-usuarios.png";
 
 const Usuarios = () => {
 	const { form, formData, updateFormData } = useFormData();
@@ -32,8 +32,10 @@ const Usuarios = () => {
 	if (mutationError) return toast.error('Error creando el usuario');
 
 	return (
-		<div className="flex flex-col items-center min-h-screen px-4 py-2 fondo sm:px-6 lg:px-8">
-			<h2 className="py-4 mt-6 text-3xl font-extrabold text-center text-blue-600">Creación de Usuario</h2>
+		<div className="flex flex-col items-center min-h-screen py-2 bg-white">
+            <div>
+				<img src={Banner} alt="Usuarios" className='mb-10 w-full h-30'></img>
+			</div>
 			<form ref={form} onChange={updateFormData} onSubmit={submitForm} className="p-5 mt-8 space-y-6 bg-white rounded-lg shadow-lg">
 				<div className="grid grid-cols-3 gap-5 text-center rounded-md">
 					<div></div>
