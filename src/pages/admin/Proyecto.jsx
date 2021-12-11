@@ -1,4 +1,5 @@
 import Logoproyecto from "../../media/education-icon.png";
+import Banner from "../../media/banner-crearproyectos.png";
 import React, { useEffect, useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import  useFormData from '../../hooks/useFormData';
@@ -50,8 +51,10 @@ const Proyecto = () => {
 
 
 		return (
-		<div className="flex flex-col items-center min-h-screen px-4 py-2 fondo sm:px-6 lg:px-8">
-				<h2 className="py-4 mt-6 text-3xl font-extrabold text-center text-blue-600">Creación de Proyecto</h2>
+		<div className="flex flex-col items-center min-h-screen py-2 bg-white">
+            <div>
+				<img src={Banner} alt="Proyecto" className='mb-10 w-full h-30'></img>
+		</div>	
 				<form ref={form} onChange={updateFormData} onSubmit={submitForm} className="p-5 mt-8 space-y-6 bg-white rounded-lg shadow-lg">
 						<div className="grid grid-cols-3 gap-5 text-center rounded-md">
 							<div></div>

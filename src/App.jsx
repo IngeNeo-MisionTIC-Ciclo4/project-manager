@@ -6,6 +6,9 @@ import Proyecto from 'pages/admin/Proyecto';
 import Perfil from 'pages/admin/Perfil';
 import MisProyectos from 'pages/admin/MisProyectos';
 import Mproyectos from 'pages/admin/Mproyectos';
+import Mavances from 'pages/admin/Mavances';
+import Minscripciones from 'pages/admin/Minscripciones';
+import Musuarios from 'pages/admin/Musuarios';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import 'styles/styles.css';
@@ -79,6 +82,9 @@ function App() {
 									<Route path='/admin/proyecto' element={<Proyecto />} />
 									<Route path='/admin/mproyectos' element={<Mproyectos />} />
 									<Route path='/admin/misproyectos' element={<MisProyectos />} />
+									<Route path='/admin/musuarios' element={<Musuarios />} />
+									<Route path='/admin/mavances' element={<Mavances />} />
+									<Route path='/admin/minscripciones' element={<Minscripciones/>} />
 								</Routes>
 						</BrowserRouter>
 					</UserContext.Provider>
