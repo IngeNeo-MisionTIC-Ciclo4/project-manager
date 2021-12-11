@@ -8,7 +8,7 @@ const ButtonLoading = ({ disabled, loading, text, onClick = () => {} }) => {
 			onClick={onClick}
 			disabled={disabled}
 			type='submit'
-			className='px-6 py-3 my-2 text-lg font-bold text-white bg-yellow-600 shadow-md rounded-xl hover:bg-yellow-700 disabled:opacity-50 disabled:bg-gray-700'
+			className='px-6 py-3 my-2 text-base font-semibold text-white bg-yellow-600 shadow-md rounded-xl hover:bg-yellow-700 disabled:opacity-50 disabled:bg-gray-700'
 		>
 			{loading ? <ReactLoading data-testid="loading-in-button" type='spin' height={30} width={30} /> : text}
 		</button>

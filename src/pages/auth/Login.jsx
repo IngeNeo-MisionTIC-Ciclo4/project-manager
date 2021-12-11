@@ -6,6 +6,7 @@ import { LOGIN } from 'graphql/auth/mutations';
 import { useAuth } from 'context/authContext';
 import { useNavigate } from 'react-router-dom';
 import ButtonLoading from '../../components/ButtonLoading';
+import Imgbannerlogo from "../../media/bannerlogo.png";
 
 const Login = () => {
 
@@ -34,26 +35,33 @@ const Login = () => {
 	}, [dataMutation, setToken, navigate]);
 
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen px-4 py-2 bg-gray-50 sm:px-6 lg:px-8">
+		<div className="flex flex-col items-center min-h-screen px-4 py-2 bg-white sm:px-6 lg:px-8">
+			<div className="flex flex-col items-center w-full">
+			<img src={Imgbannerlogo} alt="Bannerlogo" className='m-2 w-1/3'></img>
+			</div>
 			<div className="w-full max-w-md space-y-8">
-				<h2 className="mt-6 text-3xl font-extrabold text-center text-blue-600"> Inicia sesión en tu cuenta </h2>
-				<form className='flex flex-col mt-8 space-y-6' onSubmit={submitForm} onChange={updateFormData} ref={form}>
+				
+				<form className='flex flex-col items-center mt-4' onSubmit={submitForm} onChange={updateFormData} ref={form}>
 					<input type="hidden" name="recordar" defaultValue="true" />
-					<div className="-space-y-px rounded-md shadow-sm">
+					<div className="-space-y-px">
 						<div>
+						<label className="mx-2 font-semibold">
+							Correo Electrónico
+						</label>
 							<input name="correo" type="email" autoComplete="correo" required={true}
-								className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-								placeholder="Correo Electrónico"/>
+								className="w-full p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
 						</div>
 						<div>
+						<label className="mx-2 font-semibold">
+							Contraseña
+						</label>
 							<input id="password" name="password" type="password" autoComplete="current-password" required={true}
-								className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-								placeholder="Contraseña" />
+								className="w-full p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
 						</div>
 					</div>
 
-					<div className="flex items-center justify-between">
-						<div className="flex items-center">
+					<div className="flex items-start justify-start py-4">
+						<div className="flex items-start justify-start">
 							<input id="recordar" name="recordar" type="checkbox"
 							className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"/>
 							<label htmlFor="recordar" className="block ml-2 text-sm text-gray-900"> {" "} Recuérdame{" "} </label>
@@ -67,10 +75,10 @@ const Login = () => {
 						/>
 					</div>
 
-					<div className="flex items-center justify-between">
+					<div className="flex items-center justify-between py-2">
 						<span>¿No tienes cuenta?</span>
 						<Link to='/registro'>
-							<span className="font-medium text-blue-600 hover:text-blue-500"> Regístrate </span>
+							<span className="px-2 font-medium text-blue-900 hover:text-blue-700"> Regístrate </span>
 						</Link>
 					</div>
 				</form>

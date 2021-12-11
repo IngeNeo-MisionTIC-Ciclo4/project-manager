@@ -10,7 +10,7 @@ import DropDown from 'components/Dropdown';
 import { Enum_EstadoUsuario } from 'utils/enums';
 import { useNavigate } from 'react-router';
 import ReactLoading from 'react-loading';
-import Banner from "../../media/banner-usuarios.png";
+import Banner from "../../media/banner-edicion-usuarios.png";
 
 const EditarUsuario = () => {
 

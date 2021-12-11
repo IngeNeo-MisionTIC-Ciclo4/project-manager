@@ -8,6 +8,7 @@ import { REGISTRO } from 'graphql/auth/mutations';
 import { useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router';
 import { useAuth } from 'context/authContext';
+import Imgbannerlogo from "../../media/bannerlogo.png";
 
 const Registro = () => {
 
@@ -33,52 +34,66 @@ const Registro = () => {
 	}, [dataMutation, setToken, navigate]);
 
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen px-4 py-2 bg-gray-50 sm:px-6 lg:px-8">
-			<h2 className='mt-6 text-3xl font-extrabold text-center text-blue-600'>Crea tu cuenta</h2>
-			<form className='mt-8 space-y-6' onSubmit={submitForm} onChange={updateFormData} ref={form}>
-				<div className='grid grid-cols-2 gap-2 rounded-md shadow-sm'>
-					<label htmlFor='cedula'> Cedula
-						<input name='cedula' type='text' required={true}
-							className='relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm'
-							placeholder='Tu numero cedula' />
-					</label>
-					<label htmlFor='nombres'> Nombre
-						<input name='nombres' type='text' autoComplete='nombres' required={true}
-							className='relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm'
-							placeholder='Tus nombres'/>
-					</label>
-					<label htmlFor='apellidos'> Apellido
-						<input name='apellidos' type='text' required={true}
-							className='relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm'
-							placeholder='Tus Apellidos'/>
-					</label>
+		<div className="flex flex-col items-center justify-center min-h-screen px-4 py-2 bg-white sm:px-6 lg:px-8">
+			<div className="flex flex-col items-center w-full">
+			<img src={Imgbannerlogo} alt="Bannerlogo" className='m-2 w-1/3'></img>
+			</div>
 
-					<label htmlFor='correo'>Correo electrónico
-						<input name='correo' type='email' required={true}
-							className='relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm' />
+			<div className="w-full max-w-md space-y-8"></div>
+
+			<form className='flex flex-col items-center mt-4 grid grid-cols-2' onSubmit={submitForm} onChange={updateFormData} ref={form}>
+			<label className="flex flex-col py-1" htmlFor="nombres"> 
+				<label className="mx-2 font-semibold">
+					Nombres
+				</label>
+				<input name="nombres" type="text" required={true}
+					className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
+				</label>
+				<label className="flex flex-col py-1" htmlFor="apellidos">
+					<label className="mx-2 font-semibold">
+						Apellidos
 					</label>
-					<label htmlFor='password'> Contraseña
-						<input name='password' type='password' required={true}
-							className='relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm'/>
+					<input name="apellidos" type="text" required={true}
+						className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
+				</label>
+				<label className="flex flex-col py-1" htmlFor="cedula">
+					<label className="mx-2 font-semibold">
+						Cédula
 					</label>
-					<DropDown label='Rol deseado:' name='tusuario' required={true} options={Enum_Tusuario} />
+					<input name="cedula" type="number" required={true}
+						className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
+				</label>
+				<label className=" flex flex-col py-1" htmlFor="correo">
+					<label className="mx-2 font-semibold">
+						Correo
+					</label>
+					<input name="correo" type="email" required={true}
+						className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
+				</label>
+				<label className="flex flex-col py-1" htmlFor="password">
+						<label className="mx-2 font-semibold">
+						Contraseña
+						</label>
+					<input name="password" type="password" required={true}
+							className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
+				</label>
+				<div className="mx-2 font-semibold">
+					<DropDown label='Rol deseado' options={Enum_Tusuario} name='tusuario' required={true} />
 				</div>
+			</form>
 
-				<div>
+			<div className="grid grid-cols-1 py-4 rounded-md">
 					<ButtonLoading
 						disabled={Object.keys(formData).length === 0}
 						loading={false}
-						text='Registrarme'
-					/>
-				</div>
-
-				<div className='flex items-center justify-between'>
+						text='Registrarme' />
+			</div>
+			<div className='flex items-center justify-between mb-2'>
 					<span>¿Ya tienes cuenta?</span>
 					<Link to='/login'>
-						<span className='font-medium text-blue-600 hover:text-blue-500'>Inicia Sesión</span>
+						<span className='px-2 font-medium text-blue-900 hover:text-blue-700'>Inicia Sesión</span>
 					</Link>
 				</div>
-			</form>
 		</div>
 	);
 };
