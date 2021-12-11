@@ -1,14 +1,12 @@
 import React from "react";
+import Banner from "../../media/banner-perfil.png";
 
 const Perfil = () => {
     return (
-		<div className="flex flex-col items-center min-h-screen px-4 py-2 bg-white sm:px-6 lg:px-8 ">
-			<h2 className="py-10 mt-6 text-4xl font-bold text-center text-red-600">
-				Mi Perfil
-			</h2>
-			{/* <div cl>
-				<img src={userData.picture} alt='foto' className='my-4 rounded-full w-30 h-30' />
-			</div> */}
+		<div className="flex flex-col items-center min-h-screen py-2 bg-white">
+            <div>
+				<img src={Banner} alt="Perfil" className='mb-10 w-full h-30'></img>
+			</div>
 			<form className="flex flex-col w-1/5">
 				<label className="py-1 flex flex-col" htmlFor="tdocumento">
 					<label className="mx-2 font-semibold">
