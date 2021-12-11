@@ -11,12 +11,14 @@ import Minscripciones from 'pages/admin/Minscripciones';
 import Musuarios from 'pages/admin/Musuarios';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
-import 'styles/styles.css';
 import AdminLayout from './Layouts/admin';
 import { UserContext } from './context/userContext.js';
 import { setContext } from '@apollo/client/link/context';
 import { AuthContext } from './context/authContext.js';
+import EditarUsuario from './pages/admin/Editar.jsx';
 import jwt_decode from 'jwt-decode';
+import 'styles/styles.css';
+import 'styles/tabla.css';
 
 
 const httpLink = createHttpLink({
@@ -80,6 +82,7 @@ function App() {
 								<Route path='/' element={<AdminLayout />}>
 									<Route path='/perfil' element={<Perfil />} />
 									<Route path='/admin/usuarios' element={<Usuarios />} />
+									<Route path='/usuarios/editar/:_id' element={<EditarUsuario />} />
 									<Route path='/admin/proyecto' element={<Proyecto />} />
 									<Route path='/admin/mproyectos' element={<Mproyectos />} />
 									<Route path='/admin/misproyectos' element={<MisProyectos />} />
