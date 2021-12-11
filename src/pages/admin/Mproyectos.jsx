@@ -29,12 +29,12 @@ const Mproyectos = () => {
 	if (queryData.Proyectos) {
 		return (
 			<div className="flex flex-col items-center min-h-screen py-2 bg-white">
-						<div>
-				<img src={Banner} alt="Mproyecto" className='w-full mb-10 h-30'></img>
-			</div>
+				<div>
+					<img src={Banner} alt="Mproyecto" className='w-full mb-10 h-30'></img>
+				</div>
 				{/* <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}> */}
 					<div className='self-end my-2'>
-						<button className='p-2 bg-blue-500 rounded-lg shadow-lg text-gray-50 hover:bg-blue-400'>
+						<button className='p-2 bg-yellow-600 rounded-lg shadow-lg text-gray-50 hover:bg-yellow-700 m-10'>
 							<Link to='/admin/proyecto/'>Crear nuevo proyecto</Link>
 						</button>
 					</div>
@@ -53,7 +53,9 @@ const Mproyectos = () => {
 const AccordionProyecto = ({ proyecto }) => {
 	const [showDialog, setShowDialog] = useState(false);
 	return (
-		<>
+		<div className='w-full'>
+			<div className="flex grid flex-col grid-cols-3 gap-5">
+				<div></div>
 			<AccordionStyled>
 				<AccordionSummaryStyled expandIcon={<i className='fas fa-chevron-down' />}>
 					<div className='flex justify-between w-full'>
@@ -83,6 +85,7 @@ const AccordionProyecto = ({ proyecto }) => {
 						{proyecto.objetivos.map((objetivo) => {
 							return <Objetivo tipo={objetivo.tipo} descripcion={objetivo.descripcion} />;
 						})}
+							<div></div>
 					</div>
 				</AccordionDetailsStyled>
 			</AccordionStyled>
@@ -94,7 +97,8 @@ const AccordionProyecto = ({ proyecto }) => {
 			>
 				<FormEditProyecto _id={proyecto._id} />
 			</Dialog>
-		</>
+			</div>
+		</div>
 	);
 };
 

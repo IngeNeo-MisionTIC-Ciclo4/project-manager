@@ -5,6 +5,7 @@ import { GET_USUARIOS } from 'graphql/usuarios/queries';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { Enum_Tusuario, Enum_EstadoUsuario } from 'utils/enums';
+import ReactLoading from 'react-loading';
 
 const Musuarios = () => {
 	const { data, error, loading } = useQuery(GET_USUARIOS);
@@ -15,7 +16,7 @@ const Musuarios = () => {
 		}
 	}, [error]);
 
-	if (loading) return <div>Cargando....</div>;
+	if (loading) return <ReactLoading type="spinningBubbles" color="#0040FF" height={667} width={375} />;
 
 	return (
 		<div className="flex flex-col items-center min-h-screen py-2 bg-white">
@@ -24,7 +25,6 @@ const Musuarios = () => {
 			</div>
 			{/* <PrivateRoute roleList={['ADMINISTRADOR']}> */}
 			<div>
-				Datos Usuarios:
 				<table className='tabla'>
 					<thead>
 						<tr>

@@ -9,6 +9,8 @@ import { EDITAR_USUARIO } from 'graphql/usuarios/mutations';
 import DropDown from 'components/Dropdown';
 import { Enum_EstadoUsuario } from 'utils/enums';
 import { useNavigate } from 'react-router';
+import ReactLoading from 'react-loading';
+import Banner from "../../media/banner-usuarios.png";
 
 const EditarUsuario = () => {
 
@@ -54,47 +56,51 @@ const EditarUsuario = () => {
 		}
 	}, [queryError, mutationError]);
 
-	if (queryLoading) return <div>Cargando....</div>;
+	if (queryLoading) return <ReactLoading type="spinningBubbles" color="#0040FF" height={667} width={375} />;
 
 	return (
-		<div className='flex-col items-center justify-center w-full h-full p-10 flew'>
-			<Link to='/admin/musuarios'>
-				<i className='text-xl font-bold text-gray-600 cursor-pointer fas fa-arrow-left hover:text-gray-900' />
-			</Link>
-			<h1 className='m-4 text-3xl font-bold text-center text-gray-800'>Editar Usuario</h1>
-			<form
-				onSubmit={submitForm}
-				onChange={updateFormData}
-				ref={form}
-				className='flex flex-col items-center justify-center'
-			>
-				<label htmlFor="nombres"> Nombres
+		<div className="flex flex-col items-center min-h-screen py-2 bg-white">
+			<div>
+				<img src={Banner} alt="Usuarios" className='w-full mb-10 h-30'></img>
+			</div>
+			<form ref={form} onChange={updateFormData} onSubmit={submitForm} className="flex flex-col w-1/5 bg-white">
+				<label className="flex flex-col py-1" htmlFor="nombres">
+					<label className="mx-2 font-semibold">
+						Nombres
+					</label>
 					<input name="nombres" type="text" required={true} defaultValue={queryData.Usuario.nombres}
-							className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-							placeholder="Nombres del usuario" />
+						className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner" />
+				</label>
+				<label className="flex flex-col py-1" htmlFor="apellidos">
+					<label className="mx-2 font-semibold">
+						Apellidos
 					</label>
-					<label htmlFor="apellidos"> Apellidos
 					<input name="apellidos" type="text" required={true} defaultValue={queryData.Usuario.apellidos}
-							className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-							placeholder="Apellidos del usuario" />
+						className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner" />
+				</label>
+				<label className="flex flex-col py-1" htmlFor="cedula">
+					<label className="mx-2 font-semibold">
+						Cedula
 					</label>
-					<label htmlFor="cedula"> Cedula
 					<input name="cedula" type="text" required={true} defaultValue={queryData.Usuario.cedula}
-							className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-							placeholder="Cedula del usuario" />
+						className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner" />
+				</label>
+				<label className="flex flex-col py-1 " htmlFor="correo">
+					<label className="mx-2 font-semibold">
+						Correo
 					</label>
-					<label htmlFor="correo"> Correo electrónico
 					<input name="correo" type="email" required={true} defaultValue={queryData.Usuario.correo}
-							className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-							placeholder="Correo del usuario" />
-					</label>
-				<DropDown
-					label='Estado de la persona:'
-					name='estado'
-					defaultValue={queryData.Usuario.estado}
-					required={true}
-					options={Enum_EstadoUsuario}
-				/>
+						className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner" />
+				</label>
+				<div className="grid grid-cols-1 mx-2 font-semibold rounded-md ">
+					<DropDown
+						label='Estado de la persona:'
+						name='estado'
+						defaultValue={queryData.Usuario.estado}
+						required={true}
+						options={Enum_EstadoUsuario}
+					/>
+				</div>
 				<span>Tipo de usuario: {queryData.Usuario.tusuario}</span>
 				<ButtonLoading
 					disabled={Object.keys(formData).length === 0}
