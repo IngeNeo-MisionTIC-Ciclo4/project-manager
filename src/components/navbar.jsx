@@ -6,48 +6,54 @@ import React from 'react'
 
 
 
-
-
 const navbar = () => {
 	return (
-		<nav className='flex justify-between w-full pt-2 px-5 navbar menu bg-gray-700'>
+		<nav className='flex justify-center w-full px-5 navbar menu bg-yellow-600'>
 			<div>
-				<Link to='/'>
-					<Logoproyecto />
-				</Link>
-			</div>
-			<div>
-				<ul className='nav inline-flex w-full space-x-10 pt-4'>
+				<ul className='justify-content-center nav inline-flex w-full pt-4 pb-4'>
 					<li>
 						<Link to='#'>
-							<i className="fas fa-book text-white text-2xl"> Proyectos</i>
+							<i className="font-medium not-italic text-white text-lg px-4">Proyectos</i>
 						</Link>
 						<ul className="ml-5">
 							<Link to='/admin/proyecto'>
-								<i className="far fa-bookmark text-white text-2xl px-2 pt-5"> Crear Proyecto</i>
+								<i className="font-medium not-italic text-white text-lg px-4 pt-1 pb-1 bg-yellow-600">Crear Proyecto</i>
 							</Link>
-							<Link to='/admin/perfil'>
-								<i className="far fa-bookmark text-white text-2xl px-2 pb-2 pt-5 rounded-b-md"> Listar Proyectos</i>
+							<Link to='/admin/misproyectos'>
+								<i className="font-medium not-italic text-white text-lg px-4 pb-1 pt-1 bg-yellow-600">Listar Proyectos</i>
+							</Link>
+							<Link to='/admin/mproyectos'>
+								<i className="font-medium not-italic text-white text-lg px-4 pb-1 pt-1 bg-yellow-600">Administrar Proyectos</i>
 							</Link>
 						</ul>
 					</li>
-					<Link to='/admin/iscripciones'>
-						<i className="fas fa-project-diagram text-white text-2xl"> Inscripciones</i>
+					<Link to='/admin/inscripciones'>
+						<i className="font-medium not-italic text-white text-lg px-4">Inscripciones</i>
 					</Link>
-					<Link to='/admin/usuarios'>
-						<i className="fas fa-users text-white text-2xl"> Usuarios</i>
+					<li>
+						<Link to='#'>
+							<i className="font-medium not-italic text-white text-lg px-4">Usuarios</i>
+						</Link>
+						<ul className="ml-5">
+							<Link to='/admin/usuarios'>
+								<i className="font-medium not-italic text-white text-lg px-4 pt-1 pb-1 bg-yellow-600">Crear Usuario</i>
+							</Link>
+							<Link to='/admin/Musuarios'>
+								<i className="font-medium not-italic text-white text-lg px-4 pb-1 pt-1 bg-yellow-600">Listar Usuarios</i>
+							</Link>
+						</ul>
+					</li>
+					<Link to='/admin/mavances'>
+						<i className="font-medium not-italic text-white text-lg px-4">Avances</i>
 					</Link>
-					<Link to='/admin/avances'>
-						<i className="fas fa-tasks text-white text-2xl"> Avances</i>
-					</Link>
-					<Link to='/admin/usuarios'>
-						<i className="fas fa-user-shield text-white text-2xl"> Perfil</i>
+					<Link to='/admin/perfil'>
+						<i className="font-medium not-italic text-white text-lg px-4">Perfil</i>
 					</Link>
 					<Link to=''>
-						<i className='fas fa-sign-out-alt text-white text-2xl'> Cerrar Sesión  </i>
+						<i className='font-medium not-italic text-white text-lg px-4'>Cerrar Sesión  </i>
 					</Link>
 				</ul>
-			</div >
+			</div>
 		</nav>
 
 

@@ -1,23 +1,23 @@
 const Enum_Tusuario = {
-  Administrador: 'Administrador',
-  Estudiante: 'Estudiante',
-  Lider: 'Líder',
+	Administrador: 'Administrador',
+	Estudiante: 'Estudiante',
+	Lider: 'Líder',
 };
 
 const Enum_EstadoUsuario = {
-  Pendiente: 'Pendiente',
-  Autorizado: 'Autorizado',
-  No_Autorizado: 'No autorizado',
+	Pendiente: 'Pendiente',
+	Autorizado: 'Autorizado',
+	No_Autorizado: 'No autorizado',
 };
 
 const Enum_EstadoProyecto = {
-  Activo: 'Activo',
-  Inactivo: 'Inactivo',
+	Activo: 'Activo',
+	Inactivo: 'Inactivo',
 };
 
 const Enum_TipoObjetivo = {
-  General: 'General',
-  Especifico: 'Específico',
+	General: 'General',
+	Especifico: 'Específico',
 };
 
 const Enum_FaseProyecto = {

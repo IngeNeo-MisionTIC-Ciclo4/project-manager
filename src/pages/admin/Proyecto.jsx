@@ -1,4 +1,5 @@
 import Logoproyecto from "../../media/education-icon.png";
+import Banner from "../../media/banner-crearproyectos.png";
 import React, { useEffect, useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import  useFormData from '../../hooks/useFormData';
@@ -9,7 +10,6 @@ import { CREAR_PROYECTO } from '../../graphql/proyectos/mutations'
 import { GET_USUARIOS } from '../../graphql/usuarios/queries';
 import DropDown from "../../components/Dropdown";
 import ReactLoading from 'react-loading';
-
 
 const Proyecto = () => {
 
@@ -51,8 +51,10 @@ const Proyecto = () => {
 
 
 		return (
-		<div className="flex flex-col items-center min-h-screen px-4 py-2 fondo sm:px-6 lg:px-8">
-				<h2 className="py-4 mt-6 text-3xl font-extrabold text-center text-blue-600">Creación de Proyecto</h2>
+		<div className="flex flex-col items-center min-h-screen py-2 bg-white">
+            <div>
+				<img src={Banner} alt="Proyecto" className='mb-10 w-full h-30'></img>
+		</div>	
 				<form ref={form} onChange={updateFormData} onSubmit={submitForm} className="p-5 mt-8 space-y-6 bg-white rounded-lg shadow-lg">
 						<div className="grid grid-cols-3 gap-5 text-center rounded-md">
 							<div></div>
@@ -62,7 +64,7 @@ const Proyecto = () => {
 						</div>
 						<div className="grid grid-cols-2 gap-5 rounded-md">
 								<label htmlFor="nombre"> Nombre proyecto
-								<input name= "nombreproyecto" type="text" required={true}			
+								<input name= "nombreproyecto" type="text" required={true}
 											className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
 											placeholder="Nombre proyecto"/>
 								</label>
@@ -73,7 +75,7 @@ const Proyecto = () => {
 								</label>
 						</div>
 						<div className="grid grid-cols-1 rounded-md">
-							<DropDown label='Líder' options={listaUsuarios} name='lider' required={true} />
+							<DropDown label='Líder' options={listaUsuarios} name='lider' required={false} />
 						</div>
 						<Objetivos />
 						<div className="grid grid-cols-1 py-4 rounded-md">
