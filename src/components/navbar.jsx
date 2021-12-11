@@ -18,7 +18,7 @@ const navbar = () => {
 								<i className="px-4 pt-1 pb-1 text-lg not-italic font-medium text-white bg-yellow-600">Crear Proyecto</i>
 							</Link>
 							<Link to='/admin/misproyectos'>
-								<i className="px-4 pt-1 pb-1 text-lg not-italic font-medium text-white bg-yellow-600">Listar Proyectos</i>
+								<i className="px-4 pt-1 pb-1 text-lg not-italic font-medium text-white bg-yellow-600">Mis Proyectos</i>
 							</Link>
 							<Link to='/admin/mproyectos'>
 								<i className="px-4 pt-1 pb-1 text-lg not-italic font-medium text-white bg-yellow-600">Administrar Proyectos</i>
@@ -36,15 +36,15 @@ const navbar = () => {
 							<Link to='/admin/usuarios'>
 								<i className="px-4 pt-1 pb-1 text-lg not-italic font-medium text-white bg-yellow-600">Crear Usuario</i>
 							</Link>
-							<Link to='/admin/Musuarios'>
-								<i className="px-4 pt-1 pb-1 text-lg not-italic font-medium text-white bg-yellow-600">Listar Usuarios</i>
+							<Link to='/admin/musuarios'>
+								<i className="px-4 pt-1 pb-1 text-lg not-italic font-medium text-white bg-yellow-600">Administrar Usuarios</i>
 							</Link>
 						</ul>
 					</li>
 					<Link to='/admin/mavances'>
 						<i className="px-4 text-lg not-italic font-medium text-white">Avances</i>
 					</Link>
-					<Link to='/admin/perfil'>
+					<Link to='/perfil'>
 						<i className="px-4 text-lg not-italic font-medium text-white">Perfil</i>
 					</Link>
 					<Link to=''>
@@ -55,28 +55,5 @@ const navbar = () => {
 		</nav>
 	)
 }
-
-const Ruta = ({ icono, ruta, nombre, usuario }) => {
-	const isActive = useActiveRoute(ruta);
-	return (
-		<Link to={ruta}>
-			<button
-				className={`flex w-full p-4 my-2 bg-${isActive ? 'purple' : 'gray'}-900 hover:bg-purple-600 justify-items-stretch text-white rounded-md border-red-900 solid`}>
-
-				{usuario ? (
-					<>
-						<img src={usuario.picture} className='w-5 h-5 mx-2 rounded-full' alt='perfil' />
-						{usuario.name}
-					</>
-				) : (
-					<>
-						<i className={`${icono} w-10`} />
-						{nombre}
-					</>
-				)}
-			</button>
-		</Link>
-	);
-};
 
 export default navbar
