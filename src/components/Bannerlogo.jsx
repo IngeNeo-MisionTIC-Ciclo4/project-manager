@@ -1,10 +1,10 @@
 import React from 'react'
-import Imgbannerlogo from "../media/Logo-uni.png";
+import Imgbannerlogo from "../media/bannerlogo.png";
 
-const Bannerlogo = ({children}) => {
+const Bannerlogo = () => {
     return (
         <div className="flex flex-col items-center w-full bg-white">
-            <img src={Imgbannerlogo} alt="Bannerlogo" className='m-4 w-44 h-44'></img>
+            <img src={Imgbannerlogo} alt="Bannerlogo" className='m-2 w-100 h-48'></img>
         </div>
     );
 }
