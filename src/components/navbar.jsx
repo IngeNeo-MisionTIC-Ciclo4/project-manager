@@ -25,7 +25,7 @@ const navbar = () => {
 							</Link>
 						</ul>
 					</li>
-					<Link to='/admin/inscripciones'>
+					<Link to='/admin/minscripciones'>
 						<i className="px-4 text-lg not-italic font-medium text-white">Inscripciones</i>
 					</Link>
 					<li>

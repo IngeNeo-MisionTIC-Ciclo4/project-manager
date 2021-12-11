@@ -36,41 +36,41 @@ const Usuarios = () => {
 						<div>
 				<img src={Banner} alt="Usuarios" className='w-full mb-10 h-30'></img>
 			</div>
-			<form ref={form} onChange={updateFormData} onSubmit={submitForm} className="p-5 mt-8 space-y-6 bg-white rounded-lg shadow-lg">
-				<div className="grid grid-cols-3 gap-5 text-center rounded-md">
-					<div></div>
-					<div>
-						<img src={Logoproyecto} alt="Usuarios" width="150px"></img>
-					</div>
-				</div>
-				<div className="grid grid-cols-2 gap-5 rounded-md">
-					<label htmlFor="nombres"> Nombres
+			<form ref={form} onChange={updateFormData} onSubmit={submitForm} className="bg-white flex flex-col w-1/5">
+					<label className="flex flex-col py-1" htmlFor="nombres"> 
+						<label className="mx-2 font-semibold">
+							Nombres
+						</label>
 						<input name="nombres" type="text" required={true}
-							className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-							placeholder="Nombres del usuario" />
+							className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
 					</label>
-					<label htmlFor="apellidos"> Apellidos
+					<label className="flex flex-col py-1" htmlFor="apellidos">
+						<label className="mx-2 font-semibold">
+							Apellidos
+						</label>
 						<input name="apellidos" type="text" required={true}
-							className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-							placeholder="Apellidos del usuario" />
+							className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
 					</label>
-					<label htmlFor="cedula"> Cedula
+					<label className="flex flex-col py-1" htmlFor="cedula">
+						<label className="mx-2 font-semibold">
+							Cedula
+						</label>
 						<input name="cedula" type="number" required={true}
-							className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-							placeholder="Cedula del usuario" />
+							className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
 					</label>
-					<label htmlFor="correo"> Correo
+					<label className=" flex flex-col py-1" htmlFor="correo">
+						<label className="mx-2 font-semibold">
+							Correo
+						</label>
 						<input name="correo" type="email" required={true}
-							className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-							placeholder="Correo del usuario" />
+							className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
 					</label>
-				</div>
-				<div className="grid grid-cols-1 rounded-md">
+				<div className="grid grid-cols-1 rounded-md mx-2 font-semibold ">
 					<DropDown label='Tipo Usuario' options={Enum_Tusuario} name='tusuario' required={true} />
 				</div>
 				<div className="grid grid-cols-1 py-4 rounded-md">
-					<button type='submit' className='col-span-2 p-2 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-500 hover:text-white'>
-						<i className="text-2xl text-green-500 align-middle fas fa-check-circle"></i> Crear Usuario
+					<button type='submit' className='col-span-2 p-2 font-bold border-2 border-t-4 text-white rounded-lg shadow-md bg-yellow-600 hover:bg-yellow-700'>
+						<i className="text-2xl text-green-500 align-middle"></i> Crear Usuario
 					</button>
 				</div>
 			</form>
