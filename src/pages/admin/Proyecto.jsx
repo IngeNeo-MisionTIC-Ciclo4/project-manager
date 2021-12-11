@@ -55,32 +55,28 @@ const Proyecto = () => {
 						<div>
 				<img src={Banner} alt="Proyecto" className='w-full mb-10 h-30'></img>
 		</div>
-				<form ref={form} onChange={updateFormData} onSubmit={submitForm} className="p-5 mt-8 space-y-6 bg-white rounded-lg shadow-lg">
+				<form ref={form} onChange={updateFormData} onSubmit={submitForm} className="p-5 space-y-2 bg-white">
 						<div className="grid grid-cols-3 gap-5 text-center rounded-md">
-							<div></div>
-							<div>
-								<img src={Logoproyecto} alt="Proyecto" width="150px"></img>
-							</div>
 						</div>
-						<div className="grid grid-cols-2 gap-5 rounded-md">
-								<label htmlFor="nombre"> Nombre proyecto
+						<div className="grid grid-cols-2 flex flex-col gap-5">
+								<label htmlFor="nombre" className="mx-2 font-semibold"> Nombre proyecto
 								<input name= "nombreproyecto" type="text" required={true}
-											className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-											placeholder="Nombre proyecto"/>
+											className="relative block w-full p-2 mt-2 text-gray-900 border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
 								</label>
-								<label htmlFor="presupuesto"> Presupuesto
-							<input name="presupuesto" type="number" required={true}
-								className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-											placeholder="Presupuesto"/>
+								<label htmlFor="presupuesto" className="mx-2 font-semibold"> Presupuesto
+								<input name= "presupuesto" type="number" required={true}
+											className="relative block w-full p-2 mt-2 text-gray-900 border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
 								</label>
 						</div>
-						<div className="grid grid-cols-1 rounded-md">
+						<div className="grid grid-cols-1 flex flex-col font-semibold mx-2">
 							<DropDown label='Líder' options={listaUsuarios} name='lider' required={false} />
 						</div>
+						<div className="mx-2 font-semibold">
 						<Objetivos />
-						<div className="grid grid-cols-1 py-4 rounded-md">
-								<button type='submit' className='col-span-2 p-2 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-500 hover:text-white'>
-								<i className="text-2xl text-green-500 align-middle fas fa-check-circle"></i> Crear Proyecto
+						</div>
+						<div className="grid grid-cols-1 py-4 rounded-md font-semibold">
+								<button type='submit' className='col-span-2 p-2 m-3 mx-10 my-10 font-bold text-white bg-yellow-600 hover:bg-yellow-700 rounded-md shadow-lg'>
+								<i className="text-2xl text-green-500 align-middle"></i> Crear Proyecto
 								</button>
 						</div>
 				</form>
@@ -116,7 +112,7 @@ const Objetivos = () => {
 				{!maxObjetivos && (
 					<i
 						onClick={() => setListaObjetivos([...listaObjetivos, componenteObjetivoAgregado()])}
-						className='p-2 mx-2 text-white bg-green-500 rounded-full cursor-pointer fas fa-plus hover:bg-green-400'
+						className='p-2 mx-2 text-white bg-green-500 rounded-full cursor-pointer fas fa-plus hover:bg-green-600'
 					/>
 				)}
 				{listaObjetivos.map((objetivo) => {
@@ -130,11 +126,10 @@ const Objetivos = () => {
 const FormObjetivo = ({ id }) => {
 	const { eliminarObjetivo } = useObj();
 	return (
-		<div className='flex items-center'>
+		<div className='flex items-center grid grid-cols-3 flex flex-col gap-2'>
 			<label> Descripción
 				<input name={`siguiente||objetivos||${id}||descripcion`} type="textarea" required={true}
-					className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-					placeholder="Descripción del objetivo" />
+					className="relative block w-full p-2 mt-2 text-gray-900 border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
 			</label>
 			<DropDown
 				name={`nested||objetivos||${id}||tipo`}
@@ -144,7 +139,7 @@ const FormObjetivo = ({ id }) => {
 			/>
 			<i
 				onClick={() => eliminarObjetivo(id)}
-				className='p-2 mx-2 mt-6 text-white bg-red-500 rounded-full cursor-pointer fas fa-minus hover:bg-red-400'
+				className='items-right p-2 mx-12 mt-6 w-36 text-white bg-red-500 rounded-full cursor-pointer fas fa-minus hover:bg-red-600'
 			/>
 		</div>
 	);

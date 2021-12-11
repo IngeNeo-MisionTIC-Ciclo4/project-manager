@@ -39,7 +39,7 @@ const Perfil = () => {
 				</label>
 				<button
 					type='submit'
-					className='col-span-2 p-2 m-3 mx-10 my-10 font-bold text-white bg-red-600 rounded-md shadow-lg'
+					className='col-span-2 p-2 m-3 mx-10 my-10 font-bold text-white bg-yellow-600 hover:bg-yellow-700 rounded-md shadow-lg'
 				>
 					Actualizar
 				</button>
