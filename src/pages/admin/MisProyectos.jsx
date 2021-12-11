@@ -1,12 +1,13 @@
-
 import React from "react";
+import Banner from "../../media/banner-misproyectos.png";
+
 
 const MisProyectos = () => {
 	return (
-		<div className="flex flex-col items-center min-h-screen px-4 py-2 bg-white sm:px-6 lg:px-8 ">
-			<h2 className="py-10 mt-6 text-4xl font-bold text-center text-red-600">
-				Mis Proyectos
-			</h2>
+		<div className="flex flex-col items-center min-h-screen py-2 bg-white">
+            <div>
+				<img src={Banner} alt="MisProyectos" className='mb-10 w-full h-30'></img>
+			</div>
 			<table className="border-2 border-black">
 				<thead className="text-white bg-red-600">
 					<tr>

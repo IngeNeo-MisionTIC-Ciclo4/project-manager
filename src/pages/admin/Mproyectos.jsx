@@ -13,6 +13,7 @@ import { useUser } from 'context/userContext';
 import { toast } from 'react-toastify';
 import { AccordionStyled, AccordionSummaryStyled,	AccordionDetailsStyled } from 'components/Accordion';
 import ReactLoading from 'react-loading';
+import Banner from "../../media/banner-admproyectos.png";
 
 const Mproyectos = () => {
 	const { data: queryData, loading, error } = useQuery(PROYECTOS);
@@ -26,10 +27,10 @@ const Mproyectos = () => {
 
 	if (queryData.Proyectos) {
 		return (
-			<div className='flex flex-col p-10'>
-				<div className='flex items-center justify-center w-full rounded-full'>
-					<h1 className='text-2xl font-bold text-blue-800'>Lista de Proyectos</h1>
-				</div>
+			<div className="flex flex-col items-center min-h-screen py-2 bg-white">
+            <div>
+				<img src={Banner} alt="Mproyecto" className='mb-10 w-full h-30'></img>
+			</div>
 				{/* <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}> */}
 					<div className='self-end my-2'>
 						<button className='p-2 bg-blue-500 rounded-lg shadow-lg text-gray-50 hover:bg-blue-400'>
