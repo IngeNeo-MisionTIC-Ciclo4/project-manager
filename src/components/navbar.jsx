@@ -4,60 +4,55 @@ import useActiveRoute from 'hooks/useActiveRoute';
 import { Link } from 'react-router-dom';
 import React from 'react'
 
-
-
 const navbar = () => {
 	return (
-		<nav className='flex justify-center w-full px-5 navbar menu bg-yellow-600'>
+		<nav className='flex justify-center w-full px-5 bg-yellow-600 navbar menu'>
 			<div>
-				<ul className='justify-content-center nav inline-flex w-full pt-4 pb-4'>
+				<ul className='inline-flex w-full pt-4 pb-4 justify-content-center nav'>
 					<li>
 						<Link to='#'>
-							<i className="font-medium not-italic text-white text-lg px-4">Proyectos</i>
+							<i className="px-4 text-lg not-italic font-medium text-white">Proyectos</i>
 						</Link>
 						<ul className="ml-5">
 							<Link to='/admin/proyecto'>
-								<i className="font-medium not-italic text-white text-lg px-4 pt-1 pb-1 bg-yellow-600">Crear Proyecto</i>
+								<i className="px-4 pt-1 pb-1 text-lg not-italic font-medium text-white bg-yellow-600">Crear Proyecto</i>
 							</Link>
 							<Link to='/admin/misproyectos'>
-								<i className="font-medium not-italic text-white text-lg px-4 pb-1 pt-1 bg-yellow-600">Listar Proyectos</i>
+								<i className="px-4 pt-1 pb-1 text-lg not-italic font-medium text-white bg-yellow-600">Listar Proyectos</i>
 							</Link>
 							<Link to='/admin/mproyectos'>
-								<i className="font-medium not-italic text-white text-lg px-4 pb-1 pt-1 bg-yellow-600">Administrar Proyectos</i>
+								<i className="px-4 pt-1 pb-1 text-lg not-italic font-medium text-white bg-yellow-600">Administrar Proyectos</i>
 							</Link>
 						</ul>
 					</li>
 					<Link to='/admin/inscripciones'>
-						<i className="font-medium not-italic text-white text-lg px-4">Inscripciones</i>
+						<i className="px-4 text-lg not-italic font-medium text-white">Inscripciones</i>
 					</Link>
 					<li>
 						<Link to='#'>
-							<i className="font-medium not-italic text-white text-lg px-4">Usuarios</i>
+							<i className="px-4 text-lg not-italic font-medium text-white">Usuarios</i>
 						</Link>
 						<ul className="ml-5">
 							<Link to='/admin/usuarios'>
-								<i className="font-medium not-italic text-white text-lg px-4 pt-1 pb-1 bg-yellow-600">Crear Usuario</i>
+								<i className="px-4 pt-1 pb-1 text-lg not-italic font-medium text-white bg-yellow-600">Crear Usuario</i>
 							</Link>
 							<Link to='/admin/Musuarios'>
-								<i className="font-medium not-italic text-white text-lg px-4 pb-1 pt-1 bg-yellow-600">Listar Usuarios</i>
+								<i className="px-4 pt-1 pb-1 text-lg not-italic font-medium text-white bg-yellow-600">Listar Usuarios</i>
 							</Link>
 						</ul>
 					</li>
 					<Link to='/admin/mavances'>
-						<i className="font-medium not-italic text-white text-lg px-4">Avances</i>
+						<i className="px-4 text-lg not-italic font-medium text-white">Avances</i>
 					</Link>
 					<Link to='/admin/perfil'>
-						<i className="font-medium not-italic text-white text-lg px-4">Perfil</i>
+						<i className="px-4 text-lg not-italic font-medium text-white">Perfil</i>
 					</Link>
 					<Link to=''>
-						<i className='font-medium not-italic text-white text-lg px-4'>Cerrar Sesión  </i>
+						<i className='px-4 text-lg not-italic font-medium text-white'>Cerrar Sesión  </i>
 					</Link>
 				</ul>
 			</div>
 		</nav>
-
-
-
 	)
 }
 
