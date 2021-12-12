@@ -80,7 +80,7 @@ function App() {
 								<Route path='/login' element={<Login />} />
 								<Route path='/registro' element={<Registro />} />
 								<Route path='/' element={<AdminLayout />}>
-									<Route path='/perfil' element={<Perfil />} />
+									<Route path='/perfil/:_id' element={<Perfil />} />
 									<Route path='/admin/usuarios' element={<Usuarios />} />
 									<Route path='/usuarios/editar/:_id' element={<EditarUsuario />} />
 									<Route path='/admin/proyecto' element={<Proyecto />} />

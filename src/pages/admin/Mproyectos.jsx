@@ -3,7 +3,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import { PROYECTOS } from 'graphql/proyectos/queries';
 import DropDown from 'components/Dropdown';
 import { Dialog } from '@mui/material';
-import { Enum_EstadoProyecto } from 'utils/enums';
+import { Enum_EstadoProyecto, Enum_FaseProyecto } from 'utils/enums';
 import { EDITAR_PROYECTO } from 'graphql/proyectos/mutations';
 import useFormData from 'hooks/useFormData';
 //import PrivateComponent from 'components/PrivateComponent';
@@ -52,6 +52,7 @@ const Mproyectos = () => {
 
 const AccordionProyecto = ({ proyecto }) => {
 	const [showDialog, setShowDialog] = useState(false);
+	const [showDialog1, setShowDialog1] = useState(false);
 	return (
 		<div className='w-full'>
 			<div className="flex grid flex-col grid-cols-3 gap-5">
@@ -70,6 +71,12 @@ const AccordionProyecto = ({ proyecto }) => {
 							className='mx-4 text-yellow-600 fas fa-pen hover:text-yellow-400'
 							onClick={() => {
 								setShowDialog(true);
+							}}
+						/>
+						<i
+							className='mx-4 text-yellow-600 fas fa-pen hover:text-yellow-400'
+							onClick={() => {
+								setShowDialog1(true);
 							}}
 						/>
 					{/* </PrivateComponent> */}
@@ -95,7 +102,15 @@ const AccordionProyecto = ({ proyecto }) => {
 					setShowDialog(false);
 				}}
 			>
-				<FormEditProyecto _id={proyecto._id} />
+			<FormEditProyecto _id={proyecto._id} />
+			</Dialog>
+			<Dialog
+				open={showDialog1}
+				onClose={() => {
+					setShowDialog1(false);
+				}}
+			>
+				<FormEditFaseProyecto _id={proyecto._id} />
 			</Dialog>
 			</div>
 		</div>
@@ -130,6 +145,44 @@ const FormEditProyecto = ({ _id }) => {
 				className='flex flex-col items-center'
 			>
 				<DropDown label='Estado del Proyecto' name='estado' options={Enum_EstadoProyecto} />
+				{/* <ButtonLoading disabled={false} loading={loading} text='Confirmar' /> */}
+				<button type='submit' className='col-span-2 p-2 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-500 hover:text-white'>
+					<i className="text-2xl text-green-500 align-middle fas fa-check-circle"></i> Confirmar
+				</button>
+			</form>
+		</div>
+	);
+};
+
+
+const FormEditFaseProyecto = ({ _id }) => {
+	const { form, formData, updateFormData } = useFormData();
+	const [editarProyecto, { data: dataMutation, loading, error }] = useMutation(EDITAR_PROYECTO);
+
+	const submitForm = (e) => {
+		e.preventDefault();
+		editarProyecto({
+			variables: {
+				_id,
+				campos: formData,
+			},
+		});
+	};
+
+	useEffect(() => {
+		console.log('data mutation', dataMutation);
+	}, [dataMutation]);
+
+	return (
+		<div className='p-4'>
+			<h1 className='font-bold'>Modificar Fase del Proyecto</h1>
+			<form
+				ref={form}
+				onChange={updateFormData}
+				onSubmit={submitForm}
+				className='flex flex-col items-center'
+			>
+				<DropDown label='Fase del Proyecto' name='fase' options={Enum_FaseProyecto} />
 				{/* <ButtonLoading disabled={false} loading={loading} text='Confirmar' /> */}
 				<button type='submit' className='col-span-2 p-2 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-500 hover:text-white'>
 					<i className="text-2xl text-green-500 align-middle fas fa-check-circle"></i> Confirmar

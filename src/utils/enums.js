@@ -1,7 +1,7 @@
 const Enum_Tusuario = {
 	Administrador: 'Administrador',
 	Estudiante: 'Estudiante',
-	Lider: 'Líder',
+	Lider: 'Lider',
 };
 
 const Enum_EstadoUsuario = {
@@ -17,7 +17,7 @@ const Enum_EstadoProyecto = {
 
 const Enum_TipoObjetivo = {
 	General: 'General',
-	Especifico: 'Específico',
+	Especifico: 'Especifico',
 };
 
 const Enum_FaseProyecto = {
