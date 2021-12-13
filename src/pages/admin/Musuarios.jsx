@@ -50,7 +50,7 @@ const Musuarios = () => {
 											<td>{Enum_Tusuario[u.tusuario]}</td>
 											<td>{Enum_EstadoUsuario[u.estado]}</td>
 											<td>
-												<Link to={`/usuarios/editar/${u._id}`}>
+												<Link to={`/usuarios/editarusuarios/${u._id}`}>
 													<i className='text-yellow-600 cursor-pointer fas fa-pen hover:text-yellow-400' />
 												</Link>
 											</td>

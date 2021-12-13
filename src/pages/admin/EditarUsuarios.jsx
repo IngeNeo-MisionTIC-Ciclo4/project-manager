@@ -32,7 +32,6 @@ const EditarUsuario = () => {
 
 	const submitForm = (e) => {
 		e.preventDefault();
-		delete formData.rol;
 		editarUsuario({
 			variables: { _id, ...formData },
 		});

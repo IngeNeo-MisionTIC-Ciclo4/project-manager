@@ -15,7 +15,9 @@ import AdminLayout from './Layouts/admin';
 import { UserContext } from './context/userContext.js';
 import { setContext } from '@apollo/client/link/context';
 import { AuthContext } from './context/authContext.js';
-import EditarUsuario from './pages/admin/Editar.jsx';
+import EditarUsuario from './pages/admin/EditarUsuarios.jsx';
+import EditarInscripciones from './pages/admin/EditarInscripciones.jsx';
+import EditarAvances from './pages/admin/EditarAvances.jsx';
 import jwt_decode from 'jwt-decode';
 import 'styles/styles.css';
 import 'styles/tabla.css';
@@ -82,13 +84,15 @@ function App() {
 								<Route path='/' element={<AdminLayout />}>
 									<Route path='/perfil/:_id' element={<Perfil />} />
 									<Route path='/admin/usuarios' element={<Usuarios />} />
-									<Route path='/usuarios/editar/:_id' element={<EditarUsuario />} />
+									<Route path='/usuarios/editarusuarios/:_id' element={<EditarUsuario />} />
 									<Route path='/admin/proyecto' element={<Proyecto />} />
 									<Route path='/admin/mproyectos' element={<Mproyectos />} />
 									<Route path='/admin/misproyectos' element={<MisProyectos />} />
 									<Route path='/admin/musuarios' element={<Musuarios />} />
-									<Route path='/admin/mavances' element={<Mavances />} />
 									<Route path='/admin/minscripciones' element={<Minscripciones/>} />
+									<Route path='/minscripciones/editarinscripciones/:_id' element={<EditarInscripciones />} />
+									<Route path='/admin/mavances' element={<Mavances />} />
+									<Route path='/mavances/editaravances/:_id' element={<EditarAvances />} />
 								</Route>
 								</Routes>
 						</BrowserRouter>
