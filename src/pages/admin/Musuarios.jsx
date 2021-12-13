@@ -28,7 +28,7 @@ const Musuarios = () => {
 				<table className='tabla'>
 					<thead>
 						<tr>
-							<th>Cedula</th>
+							<th>Cédula</th>
 							<th>Nombres</th>
 							<th>Apellidos</th>
 							<th>Correo</th>
@@ -49,7 +49,7 @@ const Musuarios = () => {
 											<td>{u.correo}</td>
 											<td>{Enum_Tusuario[u.tusuario]}</td>
 											<td>{Enum_EstadoUsuario[u.estado]}</td>
-											<td>
+											<td className="text-center">
 												<Link to={`/usuarios/editarusuarios/${u._id}`}>
 													<i className='text-yellow-600 cursor-pointer fas fa-pen hover:text-yellow-400' />
 												</Link>

@@ -48,7 +48,7 @@ const Minscripciones = () => {
 											<td>{u.proyecto.nombreproyecto}</td>
 											<td>{u.estudiante.cedula}</td>
 											<td>{Enum_EstadoInscripcion[u.estado]}</td>
-											<td>
+											<td className="text-center">
 												<Link to={`/minscripciones/editarinscripciones/${u._id}`}>
 													<i className='text-yellow-600 cursor-pointer fas fa-pen hover:text-yellow-400' />
 												</Link>

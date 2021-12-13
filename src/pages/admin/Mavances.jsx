@@ -32,7 +32,7 @@ const Mavances = () => {
 							<th>Proyecto</th>
 							<th>Creado Por Estudiante</th>
 							<th>Descripción avance</th>
-							<th>Observaciones del lider</th>
+							<th>Observaciones del líder</th>
 							<th>Editar</th>
 						</tr>
 					</thead>
@@ -47,7 +47,7 @@ const Mavances = () => {
 											<td>{u.creadoPorEstudiante.correo}</td>
 											<td>{u.descripcion}</td>
 											<td>{u.observaciones}</td>
-											<td>
+											<td className="text-center">
 												<Link to={`/minscripciones/editarinscripciones/${u._id}`}>
 													<i className='text-yellow-600 cursor-pointer fas fa-pen hover:text-yellow-400' />
 												</Link>

@@ -24,7 +24,7 @@ const Mproyectos = () => {
 	}, [queryData]);
 
 	if (loading) return <ReactLoading type="spinningBubbles" color="#0040FF" height={667} width={375} />
-	if (error) return <div className='text-2xl font-bold bg-red-700'>A ocurrido un error en la consulta con la base de datos </div>
+	if (error) return <div className='text-2xl font-bold bg-red-700'>Ha ocurrido un error en la consulta con la base de datos </div>
 
 	if (queryData.Proyectos) {
 		return (
@@ -33,8 +33,8 @@ const Mproyectos = () => {
 					<img src={Banner} alt="Mproyecto" className='w-full mb-10 h-30'></img>
 				</div>
 				{/* <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}> */}
-					<div className='self-end my-2'>
-						<button className='p-2 bg-yellow-600 rounded-lg shadow-lg text-gray-50 hover:bg-yellow-700 m-10'>
+					<div className='self-center my-2'>
+						<button className='px-6 py-3 my-4 text-base font-semibold text-white bg-yellow-600 shadow-md rounded-xl hover:bg-yellow-700 disabled:opacity-50 disabled:bg-gray-700'>
 							<Link to='/admin/proyecto/'>Crear nuevo proyecto</Link>
 						</button>
 					</div>
@@ -58,7 +58,7 @@ const AccordionProyecto = ({ proyecto }) => {
 			<div className="flex grid flex-col grid-cols-3 gap-5">
 				<div></div>
 			<AccordionStyled>
-				<AccordionSummaryStyled expandIcon={<i className='fas fa-chevron-down' />}>
+				<AccordionSummaryStyled expandIcon={<i className='fas fa-chevron-down text-gray-100' />}>
 					<div className='flex justify-between w-full'>
 						<div className='font-bold text-gray-100 uppercase '>
 							{proyecto.nombreproyecto} - {proyecto.estado}
@@ -67,18 +67,13 @@ const AccordionProyecto = ({ proyecto }) => {
 				</AccordionSummaryStyled>
 				<AccordionDetailsStyled>
 					{/* <PrivateComponent roleList={['ADMINISTRADOR']}> */}
-						<i
-							className='mx-4 text-yellow-600 fas fa-pen hover:text-yellow-400'
-							onClick={() => {
-								setShowDialog(true);
-							}}
-						/>
-						<i
-							className='mx-4 text-yellow-600 fas fa-pen hover:text-yellow-400'
-							onClick={() => {
-								setShowDialog1(true);
-							}}
-						/>
+						<button type='submit' className='px-3 py-3 mt-4 ml-2 mr-3 text-base font-semibold text-white bg-yellow-600 shadow-md rounded-xl hover:bg-yellow-700 disabled:opacity-50 disabled:bg-gray-700 col-span-2' onClick={() => {setShowDialog(true);}}>
+						Editar Estado
+						</button>
+
+						<button type='submit' className='px-3 py-3 mt-4 text-base font-semibold text-white bg-yellow-600 shadow-md rounded-xl hover:bg-yellow-700 disabled:opacity-50 disabled:bg-gray-700 col-span-2' onClick={() => {setShowDialog1(true);}}>
+						Editar Fase
+						</button>
 					{/* </PrivateComponent> */}
 					{/* <PrivateComponent roleList={['ESTUDIANTE']}> */}
 						<InscripcionProyecto
@@ -87,7 +82,12 @@ const AccordionProyecto = ({ proyecto }) => {
 							inscripciones={proyecto.inscripciones}
 						/>
 					{/* </PrivateComponent> */}
-					<div>Liderado Por: {proyecto.lider.correo}</div>
+					<div className="mt-4">
+					<label className="w-18 mx-2 font-semibold">
+					Liderado por:
+					</label>
+					<label className="font-normal">{proyecto.lider.correo}</label>
+					</div>
 					<div className='flex'>
 						{proyecto.objetivos.map((objetivo) => {
 							return <Objetivo tipo={objetivo.tipo} descripcion={objetivo.descripcion} />;
@@ -194,11 +194,15 @@ const FormEditFaseProyecto = ({ _id }) => {
 
 const Objetivo = ({ tipo, descripcion }) => {
 	return (
-		<div className='flex flex-col items-center justify-center p-8 mx-5 my-4 rounded-lg shadow-xl bg-gray-50'>
+		<div className='flex flex-col items-center justify-center p-6 mx-5 my-5 rounded-lg shadow-xl bg-gray-50'>
 			<div className='text-lg font-bold'>{tipo}</div>
-			<div>{descripcion}</div>
+			<div className='text-center m-4 text-normal'>{descripcion}</div>
 			{/* <PrivateComponent roleList={['ADMINISTRADOR']}> */}
-				<div>Editar</div>
+				<div>
+				<button type='submit' className='px-3 py-3 text-base font-semibold text-white theadcolor shadow-md rounded-xl disabled:opacity-50 disabled:bg-gray-700 col-span-2'>
+					Editar
+				</button>
+				</div>
 			{/* </PrivateComponent> */}
 		</div>
 	);
@@ -232,10 +236,10 @@ const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
 	return (
 		<>
 			{estadoInscripcion !== '' ? (
-				<span>Ya estas inscrito en este proyecto y el estado es {estadoInscripcion}</span>
+				<span>Ya estás inscrito en este proyecto y el estado es {estadoInscripcion}</span>
 			) : (
-				<button type='submit' className='col-span-2 p-2 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-500 hover:text-white' onClick={() => confirmarInscripcion()}>
-					<i className="text-2xl text-green-500 align-middle fas fa-check-circle"></i> Inscribirme en este proyecto
+				<button type='submit' className='px-3 py-3 mt-4 ml-3 text-base font-semibold text-white bg-yellow-600 shadow-md rounded-xl hover:bg-yellow-700 disabled:opacity-50 disabled:bg-gray-700 col-span-2' onClick={() => confirmarInscripcion()}>
+					Inscribirme
 				</button>
 			)}
 		</>

@@ -79,7 +79,7 @@ const EditarUsuario = () => {
 				</label>
 				<label className="flex flex-col py-1" htmlFor="cedula">
 					<label className="mx-2 font-semibold">
-						Cedula
+						Cédula
 					</label>
 					<input name="cedula" type="text" required={true} defaultValue={queryData.Usuario.cedula}
 						className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner" />
@@ -93,14 +93,19 @@ const EditarUsuario = () => {
 				</label>
 				<div className="grid grid-cols-1 mx-2 font-semibold rounded-md ">
 					<DropDown
-						label='Estado de la persona:'
+						label='Estado de la persona'
 						name='estado'
 						defaultValue={queryData.Usuario.estado}
 						required={true}
 						options={Enum_EstadoUsuario}
 					/>
 				</div>
-				<span>Tipo de usuario: {queryData.Usuario.tusuario}</span>
+				<div className="mt-2 mb-4">
+					<label className="mx-2 font-semibold">
+					Tipo de usuario:
+					</label>
+					<label className="font-normal">{queryData.Usuario.tusuario}</label>
+				</div>				
 				<ButtonLoading
 					disabled={Object.keys(formData).length === 0}
 					loading={mutationLoading}

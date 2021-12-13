@@ -149,7 +149,7 @@ const FormObjetivo = ({ id }) => {
 			/>
 			<i
 				onClick={() => eliminarObjetivo(id)}
-				className='p-2 mx-2 mt-6 text-white bg-red-500 rounded-full cursor-pointer items-right fas fa-minus hover:bg-red-600'
+				className='p-2 w-12 mx-2 mt-7 text-white text-center bg-red-500 rounded-full cursor-pointer items-right fas fa-minus hover:bg-red-600'
 			/>
 		</div>
 	);
