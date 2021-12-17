@@ -6,7 +6,7 @@ name: CI_CD_MAIN
 on:
   # Activa el flujo de trabajo en eventos de solicitud de inserción o extracción, pero solo para la rama principal
   push:
-    branches: ['main']
+    branches: ['main', 'CI-CD']
 
 # Una ejecución de flujo de trabajo se compone de uno o más trabajos que pueden ejecutarse secuencialmente o en paralelo
 jobs:
