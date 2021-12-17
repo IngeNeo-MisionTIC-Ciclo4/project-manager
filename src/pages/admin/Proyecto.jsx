@@ -67,17 +67,17 @@ const Proyecto = () => {
 						<div>
 				<img src={Banner} alt="Proyecto" className='w-full mb-10 h-30'></img>
 		</div>
-				<form ref={form} onChange={updateFormData} onSubmit={submitForm} className="p-5 space-y-2 bg-white">
+				<form ref={form} onChange={updateFormData} onSubmit={submitForm} className="p-5 space-y-2 bg-white w-1/2">
 						<div className="grid grid-cols-3 gap-5 text-center rounded-md">
 						</div>
 						<div className="flex grid flex-col grid-cols-2 gap-5">
 								<label htmlFor="nombre" className="mx-2 font-semibold"> Nombre proyecto
 								<input name= "nombreproyecto" type="text" required={true}
-											className="relative block w-full p-2 mt-2 text-gray-900 border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
+											className="w-full p-2 mt-2 text-gray-900 border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
 								</label>
 								<label htmlFor="presupuesto" className="mx-2 font-semibold"> Presupuesto
 								<input name= "presupuesto" type="number" required={true}
-											className="relative block w-full p-2 mt-2 text-gray-900 border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
+											className="w-full p-2 mt-2 text-gray-900 border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
 								</label>
 						</div>
 						<div className="flex grid flex-col grid-cols-1 mx-2 font-semibold">
@@ -139,7 +139,7 @@ const FormObjetivo = ({ id }) => {
 		<div className='flex grid flex-col items-center grid-cols-3 gap-2'>
 			<label> Descripción
 				<input name={`siguiente||objetivos||${id}||descripcion`} type="textarea" required={true}
-					className="relative block w-full p-2 mt-2 text-gray-900 border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
+					className="w-full p-2 mt-2 text-gray-900 border-2 border-t-4 border-gray-300 rounded-md shadow-inner"/>
 			</label>
 			<DropDown
 				name={`siguiente||objetivos||${id}||tipo`}
@@ -149,7 +149,7 @@ const FormObjetivo = ({ id }) => {
 			/>
 			<i
 				onClick={() => eliminarObjetivo(id)}
-				className='p-2 w-12 mx-2 mt-7 text-white text-center bg-red-500 rounded-full cursor-pointer items-right fas fa-minus hover:bg-red-600'
+				className='p-2 w-8 mx-2 mt-7 text-white text-center bg-red-500 rounded-full cursor-pointer items-right fas fa-minus hover:bg-red-600'
 			/>
 		</div>
 	);

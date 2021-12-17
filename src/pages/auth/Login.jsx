@@ -29,7 +29,7 @@ const Login = () => {
 		if (dataMutation) {
 			if (dataMutation.login.token) {
 				setToken(dataMutation.login.token);
-				navigate('/admin/mproyectos/');
+				navigate('/perfil');
 			}
 		}
 	}, [dataMutation, setToken, navigate]);

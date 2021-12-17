@@ -54,8 +54,8 @@ const AccordionProyecto = ({ proyecto }) => {
 	const [showDialog, setShowDialog] = useState(false);
 	const [showDialog1, setShowDialog1] = useState(false);
 	return (
-		<div className='w-full'>
-			<div className="flex flex-col grid-cols-3 gap-5">
+		<div className='w-1/2'>
+			<div className="grid-cols-3 gap-5">
 				<div></div>
 			<AccordionStyled>
 				<AccordionSummaryStyled expandIcon={<i className='fas fa-chevron-down text-gray-100' />}>

@@ -83,8 +83,8 @@ function App() {
 							<Routes>
 								<Route path='/login' element={<Login />} />
 								<Route path='/registro' element={<Registro />} />
-								<Route path='/perfil/' element={ <Perfil /> }/>
 								<Route path='/' element={<AdminLayout />}>
+									<Route path='/perfil/' element={ <Perfil /> }/>
 									<Route path='/admin/usuarios' element={ <RutaPrivada listaRoles={['Administrador']} >  <Usuarios /> </RutaPrivada> } />
 									<Route path='/usuarios/editarusuarios/:_id' element={<RutaPrivada listaRoles={['Administrador']} >  <EditarUsuario /> </RutaPrivada> } />
 									<Route path='/admin/proyecto' element={<RutaPrivada listaRoles={['Administrador', 'Lider']} >  <Proyecto /> </RutaPrivada> } />
