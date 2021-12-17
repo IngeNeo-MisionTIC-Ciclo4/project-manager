@@ -1,6 +1,5 @@
-import Navbar from '../components/navbar';
-import Footer from '../components/Footer'
-import Bannerlogo from '../components/Bannerlogo'
+import Navbar from 'components/navbar';
+import Footer from 'components/Footer';
 import React, { useEffect, useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { useAuth } from 'context/authContext';
@@ -9,15 +8,16 @@ import { useNavigate, Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ReactLoading from 'react-loading';
+import Bannerlogo from 'components/Bannerlogo';
 
 const AdminLayout = () => {
-
 	const navigate = useNavigate();
 	const { setToken } = useAuth();
 	const [loadingAuth, setLoadingAuth] = useState(true);
 
 	// falta captura de error de mutacion
-	const [renovarToken, { data: dataMutation, loading: loadingMutation }] = useMutation(RENOVAR_TOKEN);
+	const [renovarToken, { data: dataMutation, loading: loadingMutation }] =
+		useMutation(RENOVAR_TOKEN);
 
 	useEffect(() => {
 		renovarToken();
@@ -35,18 +35,26 @@ const AdminLayout = () => {
 		}
 	}, [dataMutation, setToken, loadingAuth, navigate]);
 
-	if (loadingMutation || loadingAuth) return <ReactLoading type="spinningBubbles" color="#0040FF" height={667} width={375} />;
+	if (loadingMutation || loadingAuth)
+		return (
+			<ReactLoading
+				type='spinningBubbles'
+				color='#0040FF'
+				height={667}
+				width={375}
+			/>
+		);
 	return (
 		<div className='flex flex-col justify-between h-screen'>
 			<Bannerlogo />
 			<Navbar />
 			<main className='h-full overflow-y-scroll'>
-			<Outlet />
+				<Outlet />
 			</main>
 			<ToastContainer />
 			<Footer />
 		</div>
-);
-}
+	);
+};
 
-export default AdminLayout
+export default AdminLayout;

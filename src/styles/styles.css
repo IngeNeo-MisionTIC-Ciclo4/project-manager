@@ -6,17 +6,18 @@
 	width: 70px;
 }
 
-ul, ol {
-	list-style:none;
+ul,
+ol {
+	list-style: none;
 }
 
 .nav > li {
-	float:left;
+	float: left;
 }
 
 .nav li i {
-	text-decoration:none;
-	display:block;
+	text-decoration: none;
+	display: block;
 }
 
 .nav li i:hover {
@@ -24,29 +25,29 @@ ul, ol {
 }
 
 .nav li ul {
-	display:none;
-	position:absolute;
-	min-width:140px;
+	display: none;
+	position: absolute;
+	min-width: 140px;
 }
 
 .nav li:hover > ul {
-	display:block;
-	background-color: rgb(0,48,90);
+	display: block;
+	background-color: rgb(0, 48, 90);
 }
 
 .nav li ul li {
-	position:relative;
+	position: relative;
 }
 
 .nav li ul li ul {
-	right:-140px;
-	top:0px;
+	right: -140px;
+	top: 0px;
 }
 
 .fondo {
-	background-color: #E5E7EB;
+	background-color: #e5e7eb;
 }
 
 .theadcolor {
-	background-color: #00305A;
+	background-color: #00305a;
 }

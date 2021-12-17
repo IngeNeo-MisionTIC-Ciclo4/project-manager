@@ -1,19 +1,19 @@
 import { gql } from '@apollo/client';
 
 const CREAR_INSCRIPCION = gql`
-mutation CrearInscripcion($campos: camposInscripcion!) {
-	crearInscripcion(campos: $campos) {
-		_id
+	mutation CrearInscripcion($campos: camposInscripcion!) {
+		crearInscripcion(campos: $campos) {
+			_id
+		}
 	}
-}
 `;
 
 const APROBAR_INSCRIPCION = gql`
-  mutation AprobarInscripcion($aprobarInscripcionId: String!) {
-    aprobarInscripcion(id: $aprobarInscripcionId) {
-      _id
-    }
-  }
+	mutation AprobarInscripcion($aprobarInscripcionId: String!) {
+		aprobarInscripcion(id: $aprobarInscripcionId) {
+			_id
+		}
+	}
 `;
 
-export { CREAR_INSCRIPCION, APROBAR_INSCRIPCION }
+export { CREAR_INSCRIPCION, APROBAR_INSCRIPCION };

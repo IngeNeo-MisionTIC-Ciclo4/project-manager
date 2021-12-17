@@ -1,4 +1,4 @@
-import { gql } from'@apollo/client'
+import { gql } from '@apollo/client';
 
 const GET_AVANCES = gql`
 	query Avances {
@@ -14,5 +14,6 @@ const GET_AVANCES = gql`
 				correo
 			}
 		}
-}
-`; export { GET_AVANCES }
+	}
+`;
+export { GET_AVANCES };

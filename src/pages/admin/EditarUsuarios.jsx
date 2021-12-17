@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_USUARIO } from 'graphql/usuarios/queries';
 import ButtonLoading from 'components/ButtonLoading';
@@ -8,12 +8,10 @@ import { toast } from 'react-toastify';
 import { EDITAR_USUARIO } from 'graphql/usuarios/mutations';
 import DropDown from 'components/Dropdown';
 import { Enum_EstadoUsuario } from 'utils/enums';
-import { useNavigate } from 'react-router';
 import ReactLoading from 'react-loading';
-import Banner from "../../media/banner-edicion-usuarios.png";
+import Banner from 'media/banner-edicion-usuarios.png';
 
 const EditarUsuario = () => {
-
 	const navigate = useNavigate();
 	const { form, formData, updateFormData } = useFormData(null);
 	const { _id } = useParams();
@@ -26,9 +24,10 @@ const EditarUsuario = () => {
 		variables: { _id },
 	});
 
-
-	const [editarUsuario, { data: mutationData, loading: mutationLoading, error: mutationError }] =
-		useMutation(EDITAR_USUARIO);
+	const [
+		editarUsuario,
+		{ data: mutationData, loading: mutationLoading, error: mutationError },
+	] = useMutation(EDITAR_USUARIO);
 
 	const submitForm = (e) => {
 		e.preventDefault();
@@ -55,56 +54,79 @@ const EditarUsuario = () => {
 		}
 	}, [queryError, mutationError]);
 
-	if (queryLoading) return <ReactLoading type="spinningBubbles" color="#0040FF" height={667} width={375} />;
+	if (queryLoading)
+		return (
+			<ReactLoading
+				type='spinningBubbles'
+				color='#0040FF'
+				height={667}
+				width={375}
+			/>
+		);
 
 	return (
-		<div className="flex flex-col items-center min-h-screen py-2 bg-white">
+		<div className='flex flex-col items-center min-h-screen py-2 bg-white'>
 			<div>
-				<img src={Banner} alt="Usuarios" className='w-full mb-10 h-30'></img>
+				<img src={Banner} alt='Usuarios' className='w-full mb-10 h-30' />
 			</div>
-			<form ref={form} onChange={updateFormData} onSubmit={submitForm} className="flex flex-col w-1/5 bg-white">
-				<label className="flex flex-col py-1" htmlFor="nombres">
-					<label className="mx-2 font-semibold">
-						Nombres
-					</label>
-					<input name="nombres" type="text" required={true} defaultValue={queryData.Usuario.nombres}
-						className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner" />
+			<form
+				ref={form}
+				onChange={updateFormData}
+				onSubmit={submitForm}
+				className='flex flex-col w-1/5 bg-white'
+			>
+				<label className='flex flex-col py-1' htmlFor='nombres'>
+					<label className='mx-2 font-semibold'>Nombres</label>
+					<input
+						name='nombres'
+						type='text'
+						required
+						defaultValue={queryData.Usuario.nombres}
+						className='p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
+					/>
 				</label>
-				<label className="flex flex-col py-1" htmlFor="apellidos">
-					<label className="mx-2 font-semibold">
-						Apellidos
-					</label>
-					<input name="apellidos" type="text" required={true} defaultValue={queryData.Usuario.apellidos}
-						className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner" />
+				<label className='flex flex-col py-1' htmlFor='apellidos'>
+					<label className='mx-2 font-semibold'>Apellidos</label>
+					<input
+						name='apellidos'
+						type='text'
+						required
+						defaultValue={queryData.Usuario.apellidos}
+						className='p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
+					/>
 				</label>
-				<label className="flex flex-col py-1" htmlFor="cedula">
-					<label className="mx-2 font-semibold">
-						Cédula
-					</label>
-					<input name="cedula" type="text" required={true} defaultValue={queryData.Usuario.cedula}
-						className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner" />
+				<label className='flex flex-col py-1' htmlFor='cedula'>
+					<label className='mx-2 font-semibold'>Cédula</label>
+					<input
+						name='cedula'
+						type='text'
+						required
+						defaultValue={queryData.Usuario.cedula}
+						className='p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
+					/>
 				</label>
-				<label className="flex flex-col py-1 " htmlFor="correo">
-					<label className="mx-2 font-semibold">
-						Correo
-					</label>
-					<input name="correo" type="email" required={true} defaultValue={queryData.Usuario.correo}
-						className="p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner" />
+				<label className='flex flex-col py-1 ' htmlFor='correo'>
+					<label className='mx-2 font-semibold'>Correo</label>
+					<input
+						name='correo'
+						type='email'
+						required
+						defaultValue={queryData.Usuario.correo}
+						className='p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
+					/>
 				</label>
-				<div className="grid grid-cols-1 mx-2 font-semibold rounded-md ">
+				<div className='grid grid-cols-1 mx-2 font-semibold rounded-md '>
 					<DropDown
 						label='Estado de la persona'
 						name='estado'
 						defaultValue={queryData.Usuario.estado}
-						required={true}
+						required
 						options={Enum_EstadoUsuario}
 					/>
 				</div>
-				<div className="mt-2 mb-4">
-					<label className="mx-2 font-semibold">
-					Tipo de usuario:
-					</label>
-					<label className="font-normal">{queryData.Usuario.tusuario}</label>
+				<div className='mt-2 mb-4'>
+					<label className='mx-2 font-semibold'>Tipo de usuario:</label>
+					<label className='font-normal'>{queryData.Usuario.tusuario}</label>
 				</div>
 				<ButtonLoading
 					disabled={Object.keys(formData).length === 0}

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 
-const useActiveRoute = (ruta) => {
-
+// eslint-disable-next-line prettier/prettier
+const useActiveRoute = ruta => {
 	const location = useLocation();
 	const [isActive, setIsActive] = useState(false);
 
