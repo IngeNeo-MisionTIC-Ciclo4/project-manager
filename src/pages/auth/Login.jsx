@@ -14,7 +14,7 @@ const Login = () => {
 	const { setToken } = useAuth();
 	const { form, formData, updateFormData } = useFormData();
 
-	const [login, { data: dataMutation, loading: mutationLoading, error: mutationError }] =
+	const [login, { data: dataMutation, loading: mutationLoading }] =
 		useMutation(LOGIN);
 
 	const submitForm = (e) => {
@@ -40,7 +40,7 @@ const Login = () => {
 			<img src={Imgbannerlogo} alt="Bannerlogo" className='m-2 w-1/3'></img>
 			</div>
 			<div className="w-full max-w-md space-y-8">
-				
+
 				<form className='flex flex-col items-center mt-4' onSubmit={submitForm} onChange={updateFormData} ref={form}>
 					<input type="hidden" name="recordar" defaultValue="true" />
 					<div className="-space-y-px">

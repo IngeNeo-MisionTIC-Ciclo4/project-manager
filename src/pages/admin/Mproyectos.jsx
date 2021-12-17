@@ -6,7 +6,7 @@ import { Dialog } from '@mui/material';
 import { Enum_EstadoProyecto, Enum_FaseProyecto } from 'utils/enums';
 import { EDITAR_PROYECTO } from 'graphql/proyectos/mutations';
 import useFormData from 'hooks/useFormData';
-//import PrivateComponent from 'components/PrivateComponent';
+import ComponentePrivado from 'components/ComponentePrivado';
 import { Link } from 'react-router-dom';
 import { CREAR_INSCRIPCION } from 'graphql/inscripciones/mutations';
 import { useUser } from 'context/userContext';
@@ -32,16 +32,16 @@ const Mproyectos = () => {
 				<div>
 					<img src={Banner} alt="Mproyecto" className='w-full mb-10 h-30'></img>
 				</div>
-				{/* <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}> */}
+				<ComponentePrivado listaRoles={['Administrador', 'Lider']}>
 					<div className='self-center my-2'>
 						<button className='px-6 py-3 my-4 text-base font-semibold text-white bg-yellow-600 shadow-md rounded-xl hover:bg-yellow-700 disabled:opacity-50 disabled:bg-gray-700'>
 							<Link to='/admin/proyecto/'>Crear nuevo proyecto</Link>
 						</button>
 					</div>
-				{/* </PrivateComponent> */}
+				</ComponentePrivado>
 				{queryData.Proyectos.map((proyecto) => {
 
-					return <AccordionProyecto proyecto={proyecto} />;
+					return <AccordionProyecto proyecto={proyecto} key={proyecto._id}/>;
 				})}
 			</div>
 		);
@@ -55,7 +55,7 @@ const AccordionProyecto = ({ proyecto }) => {
 	const [showDialog1, setShowDialog1] = useState(false);
 	return (
 		<div className='w-full'>
-			<div className="flex grid flex-col grid-cols-3 gap-5">
+			<div className="flex flex-col grid-cols-3 gap-5">
 				<div></div>
 			<AccordionStyled>
 				<AccordionSummaryStyled expandIcon={<i className='fas fa-chevron-down text-gray-100' />}>
@@ -66,7 +66,7 @@ const AccordionProyecto = ({ proyecto }) => {
 					</div>
 				</AccordionSummaryStyled>
 				<AccordionDetailsStyled>
-					{/* <PrivateComponent roleList={['ADMINISTRADOR']}> */}
+						<ComponentePrivado listaRoles={['Administrador']}>
 						<button type='submit' className='px-3 py-3 mt-4 ml-2 mr-3 text-base font-semibold text-white bg-yellow-600 shadow-md rounded-xl hover:bg-yellow-700 disabled:opacity-50 disabled:bg-gray-700 col-span-2' onClick={() => {setShowDialog(true);}}>
 						Editar Estado
 						</button>
@@ -74,14 +74,14 @@ const AccordionProyecto = ({ proyecto }) => {
 						<button type='submit' className='px-3 py-3 mt-4 text-base font-semibold text-white bg-yellow-600 shadow-md rounded-xl hover:bg-yellow-700 disabled:opacity-50 disabled:bg-gray-700 col-span-2' onClick={() => {setShowDialog1(true);}}>
 						Editar Fase
 						</button>
-					{/* </PrivateComponent> */}
-					{/* <PrivateComponent roleList={['ESTUDIANTE']}> */}
+						</ComponentePrivado>
+						<ComponentePrivado listaRoles={['Estudiante']}>
 						<InscripcionProyecto
 							idProyecto={proyecto._id}
 							estado={proyecto.estado}
 							inscripciones={proyecto.inscripciones}
 						/>
-					{/* </PrivateComponent> */}
+						</ComponentePrivado>
 					<div className="mt-4">
 					<label className="w-18 mx-2 font-semibold">
 					Liderado por:
@@ -119,7 +119,7 @@ const AccordionProyecto = ({ proyecto }) => {
 
 const FormEditProyecto = ({ _id }) => {
 	const { form, formData, updateFormData } = useFormData();
-	const [editarProyecto, { data: dataMutation, loading, error }] = useMutation(EDITAR_PROYECTO);
+	const [editarProyecto, { data: dataMutation }] = useMutation(EDITAR_PROYECTO);
 
 	const submitForm = (e) => {
 		e.preventDefault();
@@ -145,7 +145,6 @@ const FormEditProyecto = ({ _id }) => {
 				className='flex flex-col items-center'
 			>
 				<DropDown label='Estado del Proyecto' name='estado' options={Enum_EstadoProyecto} />
-				{/* <ButtonLoading disabled={false} loading={loading} text='Confirmar' /> */}
 				<button type='submit' className='col-span-2 p-2 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-500 hover:text-white'>
 					<i className="text-2xl text-green-500 align-middle fas fa-check-circle"></i> Confirmar
 				</button>
@@ -157,7 +156,7 @@ const FormEditProyecto = ({ _id }) => {
 
 const FormEditFaseProyecto = ({ _id }) => {
 	const { form, formData, updateFormData } = useFormData();
-	const [editarProyecto, { data: dataMutation, loading, error }] = useMutation(EDITAR_PROYECTO);
+	const [editarProyecto, { data: dataMutation }] = useMutation(EDITAR_PROYECTO);
 
 	const submitForm = (e) => {
 		e.preventDefault();
@@ -183,7 +182,6 @@ const FormEditFaseProyecto = ({ _id }) => {
 				className='flex flex-col items-center'
 			>
 				<DropDown label='Fase del Proyecto' name='fase' options={Enum_FaseProyecto} />
-				{/* <ButtonLoading disabled={false} loading={loading} text='Confirmar' /> */}
 				<button type='submit' className='col-span-2 p-2 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-500 hover:text-white'>
 					<i className="text-2xl text-green-500 align-middle fas fa-check-circle"></i> Confirmar
 				</button>
@@ -197,20 +195,20 @@ const Objetivo = ({ tipo, descripcion }) => {
 		<div className='flex flex-col items-center justify-center p-6 mx-5 my-5 rounded-lg shadow-xl bg-gray-50'>
 			<div className='text-lg font-bold'>{tipo}</div>
 			<div className='text-center m-4 text-normal'>{descripcion}</div>
-			{/* <PrivateComponent roleList={['ADMINISTRADOR']}> */}
+			<ComponentePrivado listaRoles={['Administrador', 'Lider']}>
 				<div>
 				<button type='submit' className='px-3 py-3 text-base font-semibold text-white theadcolor shadow-md rounded-xl disabled:opacity-50 disabled:bg-gray-700 col-span-2'>
 					Editar
 				</button>
 				</div>
-			{/* </PrivateComponent> */}
+		</ComponentePrivado>
 		</div>
 	);
 };
 
 const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
 	const [estadoInscripcion, setEstadoInscripcion] = useState('');
-	const [crearInscripcion, { data, loading, error }] = useMutation(CREAR_INSCRIPCION);
+	const [crearInscripcion, { data }] = useMutation(CREAR_INSCRIPCION);
 	const { userData } = useUser();
 
 	useEffect(() => {

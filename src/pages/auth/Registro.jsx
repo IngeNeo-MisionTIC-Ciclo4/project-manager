@@ -16,7 +16,7 @@ const Registro = () => {
 	const navigate = useNavigate();
 	const { form, formData, updateFormData } = useFormData();
 
-	const [registro, { data: dataMutation, loading: loadingMutation, error: errorMutation }] =
+	const [registro, { data: dataMutation }] =
 		useMutation(REGISTRO);
 
 	const submitForm = (e) => {
@@ -42,7 +42,7 @@ const Registro = () => {
 			<div className="w-full max-w-md space-y-8"></div>
 
 			<form className='flex flex-col items-center mt-4 grid grid-cols-2' onSubmit={submitForm} onChange={updateFormData} ref={form}>
-			<label className="flex flex-col py-1" htmlFor="nombres"> 
+			<label className="flex flex-col py-1" htmlFor="nombres">
 				<label className="mx-2 font-semibold">
 					Nombres
 				</label>

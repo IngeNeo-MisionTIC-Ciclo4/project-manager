@@ -9,7 +9,7 @@ const RutaPrivada = ({ listaRoles, children }) => {
 	const { userData } = useUser();
 
 	//Validamos que el perfil del usuario logeado este dentro de la lista de accesos permitidos para la ruta
-	if (listaRoles.includes(userData.tusuario)) {
+	if (listaRoles.includes(userData.tusuario) && userData.estado === 'Autorizado') {
 		return children;
 	}
 	//En caso de no cumplir con el rol mostramos una imagen de acceso no autorizado

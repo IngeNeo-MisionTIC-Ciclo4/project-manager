@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_USUARIO } from 'graphql/usuarios/queries';
 import ButtonLoading from 'components/ButtonLoading';
@@ -105,7 +105,7 @@ const EditarUsuario = () => {
 					Tipo de usuario:
 					</label>
 					<label className="font-normal">{queryData.Usuario.tusuario}</label>
-				</div>				
+				</div>
 				<ButtonLoading
 					disabled={Object.keys(formData).length === 0}
 					loading={mutationLoading}

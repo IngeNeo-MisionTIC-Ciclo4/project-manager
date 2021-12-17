@@ -4,7 +4,6 @@ import { useQuery } from '@apollo/client';
 import { GET_AVANCES } from 'graphql/avances/queries';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import { Enum_EstadoInscripcion } from 'utils/enums';
 import ReactLoading from 'react-loading';
 
 const Mavances = () => {

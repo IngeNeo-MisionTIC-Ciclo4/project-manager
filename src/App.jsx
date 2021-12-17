@@ -19,6 +19,7 @@ import EditarUsuario from './pages/admin/EditarUsuarios.jsx';
 import EditarInscripciones from './pages/admin/EditarInscripciones.jsx';
 import EditarAvances from './pages/admin/EditarAvances.jsx';
 import jwt_decode from 'jwt-decode';
+import RutaPrivada from './components/RutaPrivada';
 import 'styles/styles.css';
 import 'styles/tabla.css';
 
@@ -68,6 +69,7 @@ function App() {
 				apellidos: decoded.apellidos,
 				correo: decoded.correo,
 				tusuario: decoded.tusuario,
+				estado: decoded.estado,
 			});
 		}
 	}, [authToken]);
@@ -81,18 +83,18 @@ function App() {
 							<Routes>
 								<Route path='/login' element={<Login />} />
 								<Route path='/registro' element={<Registro />} />
+								<Route path='/perfil/' element={ <Perfil /> }/>
 								<Route path='/' element={<AdminLayout />}>
-									<Route path='/perfil/:_id' element={<Perfil />} />
-									<Route path='/admin/usuarios' element={<Usuarios />} />
-									<Route path='/usuarios/editarusuarios/:_id' element={<EditarUsuario />} />
-									<Route path='/admin/proyecto' element={<Proyecto />} />
-									<Route path='/admin/mproyectos' element={<Mproyectos />} />
-									<Route path='/admin/misproyectos' element={<MisProyectos />} />
-									<Route path='/admin/musuarios' element={<Musuarios />} />
-									<Route path='/admin/minscripciones' element={<Minscripciones/>} />
-									<Route path='/minscripciones/editarinscripciones/:_id' element={<EditarInscripciones />} />
-									<Route path='/admin/mavances' element={<Mavances />} />
-									<Route path='/mavances/editaravances/:_id' element={<EditarAvances />} />
+									<Route path='/admin/usuarios' element={ <RutaPrivada listaRoles={['Administrador']} >  <Usuarios /> </RutaPrivada> } />
+									<Route path='/usuarios/editarusuarios/:_id' element={<RutaPrivada listaRoles={['Administrador']} >  <EditarUsuario /> </RutaPrivada> } />
+									<Route path='/admin/proyecto' element={<RutaPrivada listaRoles={['Administrador', 'Lider']} >  <Proyecto /> </RutaPrivada> } />
+									<Route path='/admin/mproyectos' element={<RutaPrivada listaRoles={['Administrador', 'Lider', 'Estudiante']} >  <Mproyectos /> </RutaPrivada> } />
+									<Route path='/admin/misproyectos' element={<RutaPrivada listaRoles={['Administrador', 'Lider', 'Estudiante']} >  <MisProyectos /> </RutaPrivada> } />
+									<Route path='/admin/musuarios' element={<RutaPrivada listaRoles={['Administrador', 'Lider']} >  <Musuarios /> </RutaPrivada> } />
+									<Route path='/admin/minscripciones' element={<RutaPrivada listaRoles={['Administrador', 'Lider', 'Estudiante']} >  <Minscripciones /> </RutaPrivada> } />
+									<Route path='/minscripciones/editarinscripciones/:_id' element={<RutaPrivada listaRoles={['Administrador', 'Lider']} >  <EditarInscripciones /> </RutaPrivada> } />
+									<Route path='/admin/mavances' element={<RutaPrivada listaRoles={['Administrador', 'Lider', 'Estudiante']} >  <Mavances /> </RutaPrivada> } />
+									<Route path='/mavances/editaravances/:_id' element={<RutaPrivada listaRoles={['Administrador', 'Lider', 'Estudiante']} >  <EditarAvances /> </RutaPrivada> } />
 								</Route>
 								</Routes>
 						</BrowserRouter>
