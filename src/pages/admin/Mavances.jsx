@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Banner from "../../media/banner-avances.png";
+import Banner from '../../media/banner-avances.png';
 import { useQuery } from '@apollo/client';
 import { GET_AVANCES } from 'graphql/avances/queries';
 import { toast } from 'react-toastify';
@@ -15,12 +15,20 @@ const Mavances = () => {
 		}
 	}, [error]);
 
-	if (loading) return <ReactLoading type="spinningBubbles" color="#0040FF" height={667} width={375} />;
+	if (loading)
+		return (
+			<ReactLoading
+				type='spinningBubbles'
+				color='#0040FF'
+				height={667}
+				width={375}
+			/>
+		);
 
 	return (
-		<div className="flex flex-col items-center min-h-screen py-2 bg-white">
+		<div className='flex flex-col items-center min-h-screen py-2 bg-white'>
 			<div>
-				<img src={Banner} alt="MAvances" className='w-full mb-10 h-30'></img>
+				<img src={Banner} alt='MAvances' className='w-full mb-10 h-30'></img>
 			</div>
 			{/* <PrivateRoute roleList={['ADMINISTRADOR']}> */}
 			<div>
@@ -46,8 +54,10 @@ const Mavances = () => {
 											<td>{u.creadoPorEstudiante.correo}</td>
 											<td>{u.descripcion}</td>
 											<td>{u.observaciones}</td>
-											<td className="text-center">
-												<Link to={`/minscripciones/editarinscripciones/${u._id}`}>
+											<td className='text-center'>
+												<Link
+													to={`/minscripciones/editarinscripciones/${u._id}`}
+												>
 													<i className='text-yellow-600 cursor-pointer fas fa-pen hover:text-yellow-400' />
 												</Link>
 											</td>
@@ -61,7 +71,6 @@ const Mavances = () => {
 					</tbody>
 				</table>
 			</div>
-			{/* 	</PrivateRoute> */}
 		</div>
 	);
 };

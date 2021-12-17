@@ -13,7 +13,9 @@ it('Renderiza si no esta autorizados o no se encuentran en la lista de roles', (
 			</RutaPrivada>
 		</UserContext.Provider>
 	);
-	expect(screen.getByTestId('noAutorizado')).toHaveTextContent('No estás autorizado para ver este sitio.');
+	expect(screen.getByTestId('noAutorizado')).toHaveTextContent(
+		'No estás autorizado para ver este sitio.'
+	);
 });
 
 it('Renderiza cuando cumple todos los parametros', () => {
@@ -24,5 +26,7 @@ it('Renderiza cuando cumple todos los parametros', () => {
 			</RutaPrivada>
 		</UserContext.Provider>
 	);
-	expect(screen.getByTestId('Autorizado')).toHaveTextContent('Este es el children');
+	expect(screen.getByTestId('Autorizado')).toHaveTextContent(
+		'Este es el children'
+	);
 });

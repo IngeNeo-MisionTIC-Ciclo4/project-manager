@@ -1,4 +1,4 @@
-import { gql } from'@apollo/client'
+import { gql } from '@apollo/client';
 
 const GET_INSCRIPCIONESLIDER = gql`
 	query InscripcionesAll {
@@ -14,9 +14,8 @@ const GET_INSCRIPCIONESLIDER = gql`
 				cedula
 			}
 		}
-}
+	}
 `;
-
 
 const GET_INSCRIPCION = gql`
 	query Inscripcion($id: String!) {
@@ -25,14 +24,14 @@ const GET_INSCRIPCION = gql`
 			estado
 			fechaIngreso
 			fechaEgreso
-    proyecto {
+			proyecto {
 				nombreproyecto
 			}
-    estudiante {
+			estudiante {
 				cedula
 			}
 		}
 	}
 `;
 
-export { GET_INSCRIPCIONESLIDER, GET_INSCRIPCION }
+export { GET_INSCRIPCIONESLIDER, GET_INSCRIPCION };

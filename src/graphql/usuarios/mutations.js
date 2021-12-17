@@ -1,11 +1,25 @@
-import { gql }from '@apollo/client';
+import { gql } from '@apollo/client';
 
 const CREAR_USUARIO = gql`
-mutation CrearUsuario($cedula: String!, $nombres: String!, $apellidos: String!, $correo: String!, $tusuario: Enum_Tusuario!, $password: String!) {
-	crearUsuario(cedula: $cedula, nombres: $nombres, apellidos: $apellidos, correo: $correo, tusuario: $tusuario, password: $password) {
-		_id
+	mutation CrearUsuario(
+		$cedula: String!
+		$nombres: String!
+		$apellidos: String!
+		$correo: String!
+		$tusuario: Enum_Tusuario!
+		$password: String!
+	) {
+		crearUsuario(
+			cedula: $cedula
+			nombres: $nombres
+			apellidos: $apellidos
+			correo: $correo
+			tusuario: $tusuario
+			password: $password
+		) {
+			_id
+		}
 	}
-}
 `;
 
 const EDITAR_USUARIO = gql`
@@ -36,4 +50,4 @@ const EDITAR_USUARIO = gql`
 	}
 `;
 
-export { CREAR_USUARIO, EDITAR_USUARIO }
+export { CREAR_USUARIO, EDITAR_USUARIO };

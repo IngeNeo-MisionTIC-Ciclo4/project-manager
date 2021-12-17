@@ -3,7 +3,10 @@ import { nanoid } from 'nanoid';
 
 const DropDown = ({ label, name, defaultValue = '', required, options }) => {
 	const [selectedValue, setSelectedValue] = useState(defaultValue);
-	const optionsSelect = [['', 'Seleccione una opción', true], ...Object.entries(options)];
+	const optionsSelect = [
+		['', 'Seleccione una opción', true],
+		...Object.entries(options),
+	];
 	useEffect(() => {
 		setSelectedValue(defaultValue);
 	}, [defaultValue]);
