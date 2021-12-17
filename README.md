@@ -2,7 +2,7 @@
 
 Proyecto Mongo-Express-ReactJS-NodeJS-GraphQL
 
-#### Colaboradores – Sprint 5
+#### Colaboradores – Sprint 5 - testing
 
 |     | Colaboradores                 |
 | --- | ----------------------------- |
