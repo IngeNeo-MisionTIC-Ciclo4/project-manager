@@ -6,7 +6,7 @@ name: CI_CD_MAIN
 on:
   # Activa el flujo de trabajo en eventos de solicitud de inserción o extracción, pero solo para la rama principal
   push:
-    branches: ['main', 'CI-CD']
+    branches: ['main']
 
 # Una ejecución de flujo de trabajo se compone de uno o más trabajos que pueden ejecutarse secuencialmente o en paralelo
 jobs:
@@ -21,7 +21,7 @@ jobs:
       - name: Instalacion de dependencias
         run: yarn install
 
-      - name: Revision de lint
+      - name: Revision de lint buenas practicas de codigo
         run: yarn lint
 
   # Este flujo de trabajo contiene un solo trabajo llamado "compilación" o "build"
@@ -64,13 +64,15 @@ jobs:
       - name: Pruebas unitarias proyecto
         run: yarn test
     needs: [build]
-  #deploy:
-  #runs-on: ubuntu-latest
-  #steps:
-  #- uses: actions/checkout@v2
-  #- uses: akhileshns/heroku-deploy@v3.12.12 # Esta es la acción
-  #with:
-  #heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-  #heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
-  #heroku_email: ${{secrets.HEROKU_EMAIL}}
-  #needs: [test]
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+
+    needs: [test]

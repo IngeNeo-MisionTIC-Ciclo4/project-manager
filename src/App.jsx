@@ -29,7 +29,8 @@ import 'styles/styles.css';
 import 'styles/tabla.css';
 
 const httpLink = createHttpLink({
-	uri: 'http://localhost:5050/graphQL/',
+	// uri: 'http://localhost:5050/graphQL/',
+	uri: 'https://project-manager-graphql.herokuapp.com/graphQL/',
 });
 
 const authLink = setContext((_, { headers }) => {
