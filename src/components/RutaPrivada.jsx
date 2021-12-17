@@ -9,7 +9,7 @@ const RutaPrivada = ({ listaRoles, children }) => {
 	const { userData } = useUser();
 
 	//Validamos que el perfil del usuario logeado este dentro de la lista de accesos permitidos para la ruta
-	if (listaRoles.includes(userData.tusuario) && userData.estado === 'Autorizado') {
+	if (listaRoles.includes(userData.tusuario) /* && userData.estado === 'Autorizado' */) {
 		return children;
 	}
 	{/* <img src={noautorizado} alt='No estás autorizado para ver este sitio'/> */ }

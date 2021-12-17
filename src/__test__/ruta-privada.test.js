@@ -1,7 +1,7 @@
 import React from 'react';
+import { UserContext } from 'context/userContext';
 import RutaPrivada from 'components/RutaPrivada';
 import { render, screen, cleanup } from '@testing-library/react';
-import { UserContext } from 'context/userContext';
 
 afterEach(cleanup);
 
@@ -16,13 +16,13 @@ it('Renderiza si no esta autorizados o no se encuentran en la lista de roles', (
 	expect(screen.getByTestId('noAutorizado')).toHaveTextContent('No estás autorizado para ver este sitio.');
 });
 
-/* it('Renderiza cuando coinciden en rol enviado con la lista esperada', () => {
+it('Renderiza cuando cumple todos los parametros', () => {
 	render(
 		<UserContext.Provider value={{ userData: { tusuario: 'Administrador' } }}>
 			<RutaPrivada listaRoles={['Administrador']}>
-				<div data-testid='siAutorizado'>Este es el children</div>
+				<div data-testid='Autorizado'>Este es el children</div>
 			</RutaPrivada>
 		</UserContext.Provider>
 	);
-	expect(screen.getByTestId('siAutorizado')).toBeInTheDocument();
-}); */
+	expect(screen.getByTestId('Autorizado')).toHaveTextContent('Este es el children');
+});
