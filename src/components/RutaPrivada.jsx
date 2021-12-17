@@ -9,11 +9,12 @@ const RutaPrivada = ({ listaRoles, children }) => {
 	const { userData } = useUser();
 
 	//Validamos que el perfil del usuario logeado este dentro de la lista de accesos permitidos para la ruta
-	if (listaRoles.includes(userData.tusuario) && userData.estado === 'Autorizado') {
+	if (listaRoles.includes(userData.tusuario) /* && userData.estado === 'Autorizado' */) {
 		return children;
 	}
+	{/* <img src={noautorizado} alt='No estás autorizado para ver este sitio'/> */ }
 	//En caso de no cumplir con el rol mostramos una imagen de acceso no autorizado
-	return <div className='flex flex-col items-center justify-center'><img src={noautorizado} alt='No estás autorizado para ver este sitio'/></div>;
+	return <div data-testid='noAutorizado' className='flex flex-col items-center justify-center'> No estás autorizado para ver este sitio. </div>;
 };
 
 export default RutaPrivada
