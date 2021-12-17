@@ -1,6 +1,5 @@
-import Navbar from '../components/navbar';
-import Footer from '../components/Footer';
-import Bannerlogo from '../components/Bannerlogo';
+import Navbar from 'components/navbar';
+import Footer from 'components/Footer';
 import React, { useEffect, useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { useAuth } from 'context/authContext';
@@ -9,6 +8,7 @@ import { useNavigate, Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ReactLoading from 'react-loading';
+import Bannerlogo from 'components/Bannerlogo';
 
 const AdminLayout = () => {
 	const navigate = useNavigate();

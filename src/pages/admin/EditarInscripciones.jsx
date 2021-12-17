@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_USUARIO } from 'graphql/usuarios/queries';
 import ButtonLoading from 'components/ButtonLoading';
@@ -8,9 +8,8 @@ import { toast } from 'react-toastify';
 import { EDITAR_USUARIO } from 'graphql/usuarios/mutations';
 import DropDown from 'components/Dropdown';
 import { Enum_EstadoInscripcion } from 'utils/enums';
-import { useNavigate } from 'react-router';
 import ReactLoading from 'react-loading';
-import Banner from '../../media/banner-edicion-inscripciones.png';
+import Banner from 'media/banner-edicion-inscripciones.png';
 
 const EditarInscripciones = () => {
 	const navigate = useNavigate();
@@ -68,11 +67,7 @@ const EditarInscripciones = () => {
 	return (
 		<div className='flex flex-col items-center min-h-screen py-2 bg-white'>
 			<div>
-				<img
-					src={Banner}
-					alt='Inscripciones'
-					className='w-full mb-10 h-30'
-				></img>
+				<img src={Banner} alt='Inscripciones' className='w-full mb-10 h-30' />
 			</div>
 			<form
 				ref={form}
@@ -85,7 +80,7 @@ const EditarInscripciones = () => {
 					<input
 						name='nombres'
 						type='text'
-						required={true}
+						required
 						defaultValue={queryData.Usuario.nombres}
 						className='p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
 					/>
@@ -95,7 +90,7 @@ const EditarInscripciones = () => {
 					<input
 						name='apellidos'
 						type='text'
-						required={true}
+						required
 						defaultValue={queryData.Usuario.apellidos}
 						className='p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
 					/>
@@ -104,7 +99,7 @@ const EditarInscripciones = () => {
 					<DropDown
 						label='Estado de la inscripcion:'
 						name='estado'
-						required={true}
+						required
 						options={Enum_EstadoInscripcion}
 					/>
 				</div>

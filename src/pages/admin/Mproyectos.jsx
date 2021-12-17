@@ -17,14 +17,10 @@ import {
 	AccordionDetailsStyled,
 } from 'components/Accordion';
 import ReactLoading from 'react-loading';
-import Banner from '../../media/banner-admproyectos.png';
+import Banner from 'media/banner-admproyectos.png';
 
 const Mproyectos = () => {
 	const { data: queryData, loading, error } = useQuery(PROYECTOS);
-
-	useEffect(() => {
-		console.log('datos proyecto', queryData);
-	}, [queryData]);
 
 	if (loading)
 		return (
@@ -46,18 +42,21 @@ const Mproyectos = () => {
 		return (
 			<div className='flex flex-col items-center min-h-screen py-2 bg-white'>
 				<div>
-					<img src={Banner} alt='Mproyecto' className='w-full mb-10 h-30'></img>
+					<img src={Banner} alt='Mproyecto' className='w-full mb-10 h-30' />
 				</div>
 				<ComponentePrivado listaRoles={['Administrador', 'Lider']}>
 					<div className='self-center my-2'>
-						<button className='px-6 py-3 my-4 text-base font-semibold text-white bg-yellow-600 shadow-md rounded-xl hover:bg-yellow-700 disabled:opacity-50 disabled:bg-gray-700'>
+						<button
+							type='button'
+							className='px-6 py-3 my-4 text-base font-semibold text-white bg-yellow-600 shadow-md rounded-xl hover:bg-yellow-700 disabled:opacity-50 disabled:bg-gray-700'
+						>
 							<Link to='/admin/proyecto/'>Crear nuevo proyecto</Link>
 						</button>
 					</div>
 				</ComponentePrivado>
-				{queryData.Proyectos.map((proyecto) => {
-					return <AccordionProyecto proyecto={proyecto} key={proyecto._id} />;
-				})}
+				{queryData.Proyectos.map((proyecto) => (
+					<AccordionProyecto proyecto={proyecto} key={proyecto._id} />
+				))}
 			</div>
 		);
 	}
@@ -71,7 +70,7 @@ const AccordionProyecto = ({ proyecto }) => {
 	return (
 		<div className='w-1/2'>
 			<div className='grid-cols-3 gap-5'>
-				<div></div>
+				<div />
 				<AccordionStyled>
 					<AccordionSummaryStyled
 						expandIcon={<i className='fas fa-chevron-down text-gray-100' />}
@@ -116,15 +115,13 @@ const AccordionProyecto = ({ proyecto }) => {
 							<label className='font-normal'>{proyecto.lider.correo}</label>
 						</div>
 						<div className='flex'>
-							{proyecto.objetivos.map((objetivo) => {
-								return (
-									<Objetivo
-										tipo={objetivo.tipo}
-										descripcion={objetivo.descripcion}
-									/>
-								);
-							})}
-							<div></div>
+							{proyecto.objetivos.map((objetivo) => (
+								<Objetivo
+									tipo={objetivo.tipo}
+									descripcion={objetivo.descripcion}
+								/>
+							))}
+							<div />
 						</div>
 					</AccordionDetailsStyled>
 				</AccordionStyled>
@@ -163,9 +160,7 @@ const FormEditProyecto = ({ _id }) => {
 		});
 	};
 
-	useEffect(() => {
-		console.log('data mutation', dataMutation);
-	}, [dataMutation]);
+	if (dataMutation) return toast.sucess('Proyecto editado con exito');
 
 	return (
 		<div className='p-4'>
@@ -185,7 +180,7 @@ const FormEditProyecto = ({ _id }) => {
 					type='submit'
 					className='col-span-2 p-2 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-500 hover:text-white'
 				>
-					<i className='text-2xl text-green-500 align-middle fas fa-check-circle'></i>{' '}
+					<i className='text-2xl text-green-500 align-middle fas fa-check-circle' />{' '}
 					Confirmar
 				</button>
 			</form>
@@ -207,9 +202,7 @@ const FormEditFaseProyecto = ({ _id }) => {
 		});
 	};
 
-	useEffect(() => {
-		console.log('data mutation', dataMutation);
-	}, [dataMutation]);
+	if (dataMutation) return toast.sucess('Proyecto editado con exito');
 
 	return (
 		<div className='p-4'>
@@ -229,7 +222,7 @@ const FormEditFaseProyecto = ({ _id }) => {
 					type='submit'
 					className='col-span-2 p-2 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-500 hover:text-white'
 				>
-					<i className='text-2xl text-green-500 align-middle fas fa-check-circle'></i>{' '}
+					<i className='text-2xl text-green-500 align-middle fas fa-check-circle' />{' '}
 					Confirmar
 				</button>
 			</form>
@@ -237,26 +230,24 @@ const FormEditFaseProyecto = ({ _id }) => {
 	);
 };
 
-const Objetivo = ({ tipo, descripcion }) => {
-	return (
-		<div className='flex flex-col items-center justify-center p-6 mx-5 my-5 rounded-lg shadow-xl bg-gray-50'>
-			<div className='text-lg font-bold'>{tipo}</div>
-			<div className='text-center m-4 text-normal'>{descripcion}</div>
-			<ComponentePrivado listaRoles={['Administrador', 'Lider']}>
-				<div>
-					<button
-						type='submit'
-						className='px-3 py-3 text-base font-semibold text-white theadcolor shadow-md rounded-xl disabled:opacity-50 disabled:bg-gray-700 col-span-2'
-					>
-						Editar
-					</button>
-				</div>
-			</ComponentePrivado>
-		</div>
-	);
-};
+const Objetivo = ({ tipo, descripcion }) => (
+	<div className='flex flex-col items-center justify-center p-6 mx-5 my-5 rounded-lg shadow-xl bg-gray-50'>
+		<div className='text-lg font-bold'>{tipo}</div>
+		<div className='text-center m-4 text-normal'>{descripcion}</div>
+		<ComponentePrivado listaRoles={['Administrador', 'Lider']}>
+			<div>
+				<button
+					type='submit'
+					className='px-3 py-3 text-base font-semibold text-white theadcolor shadow-md rounded-xl disabled:opacity-50 disabled:bg-gray-700 col-span-2'
+				>
+					Editar
+				</button>
+			</div>
+		</ComponentePrivado>
+	</div>
+);
 
-const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
+const InscripcionProyecto = ({ idProyecto, inscripciones }) => {
 	const [estadoInscripcion, setEstadoInscripcion] = useState('');
 	const [crearInscripcion, { data }] = useMutation(CREAR_INSCRIPCION);
 	const { userData } = useUser();
@@ -274,7 +265,6 @@ const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
 
 	useEffect(() => {
 		if (data) {
-			console.log(data);
 			toast.success('inscripcion creada con exito');
 		}
 	}, [data]);

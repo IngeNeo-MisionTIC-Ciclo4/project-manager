@@ -20,13 +20,11 @@ const DropDown = ({ label, name, defaultValue = '', required, options }) => {
 				value={selectedValue}
 				onChange={(e) => setSelectedValue(e.target.value)}
 			>
-				{optionsSelect.map((o) => {
-					return (
-						<option key={nanoid()} value={o[0]} disabled={o[2] ?? false}>
-							{o[1]}
-						</option>
-					);
-				})}
+				{optionsSelect.map((o) => (
+					<option key={nanoid()} value={o[0]} disabled={o[2] ?? false}>
+						{o[1]}
+					</option>
+				))}
 			</select>
 		</label>
 	);

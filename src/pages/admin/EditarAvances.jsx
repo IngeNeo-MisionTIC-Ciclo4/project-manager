@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_USUARIO } from 'graphql/usuarios/queries';
 import ButtonLoading from 'components/ButtonLoading';
 import useFormData from 'hooks/useFormData';
 import { toast } from 'react-toastify';
 import { EDITAR_USUARIO } from 'graphql/usuarios/mutations';
-import { useNavigate } from 'react-router';
 import ReactLoading from 'react-loading';
-import Banner from '../../media/banner-edicion-avances.png';
+import Banner from 'media/banner-edicion-avances.png';
 
 const EditarAvances = () => {
 	const navigate = useNavigate();
@@ -66,7 +65,7 @@ const EditarAvances = () => {
 	return (
 		<div className='flex flex-col items-center min-h-screen py-2 bg-white'>
 			<div>
-				<img src={Banner} alt='Usuarios' className='w-full mb-10 h-30'></img>
+				<img src={Banner} alt='Usuarios' className='w-full mb-10 h-30' />
 			</div>
 			<form
 				ref={form}
@@ -93,7 +92,7 @@ const EditarAvances = () => {
 					<input
 						name='apellidos'
 						type='text'
-						required={true}
+						required
 						defaultValue={queryData.Usuario.apellidos}
 						className='p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
 					/>

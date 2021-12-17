@@ -3,12 +3,11 @@ import { Enum_Tusuario } from 'utils/enums';
 import ButtonLoading from 'components/ButtonLoading';
 import DropDown from 'components/Dropdown';
 import useFormData from 'hooks/useFormData';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { REGISTRO } from 'graphql/auth/mutations';
 import { useMutation } from '@apollo/client';
-import { useNavigate } from 'react-router';
 import { useAuth } from 'context/authContext';
-import Imgbannerlogo from '../../media/bannerlogo.png';
+import Imgbannerlogo from 'media/bannerlogo.png';
 
 const Registro = () => {
 	const { setToken } = useAuth();
@@ -34,10 +33,10 @@ const Registro = () => {
 	return (
 		<div className='flex flex-col items-center justify-center min-h-screen px-4 py-2 bg-white sm:px-6 lg:px-8'>
 			<div className='flex flex-col items-center w-full'>
-				<img src={Imgbannerlogo} alt='Bannerlogo' className='m-2 w-1/3'></img>
+				<img src={Imgbannerlogo} alt='Bannerlogo' className='m-2 w-1/3' />
 			</div>
 
-			<div className='w-full max-w-md space-y-8'></div>
+			<div className='w-full max-w-md space-y-8' />
 
 			<form
 				className='flex flex-col items-center mt-4 grid grid-cols-2'
@@ -46,11 +45,13 @@ const Registro = () => {
 				ref={form}
 			>
 				<label className='flex flex-col py-1' htmlFor='nombres'>
-					<label className='mx-2 font-semibold'>Nombres</label>
+					<label className='mx-2 font-semibold' htmlFor='nombres'>
+						Nombres
+					</label>
 					<input
 						name='nombres'
 						type='text'
-						required={true}
+						required
 						className='p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
 					/>
 				</label>
@@ -59,7 +60,7 @@ const Registro = () => {
 					<input
 						name='apellidos'
 						type='text'
-						required={true}
+						required
 						className='p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
 					/>
 				</label>
@@ -68,7 +69,7 @@ const Registro = () => {
 					<input
 						name='cedula'
 						type='number'
-						required={true}
+						required
 						className='p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
 					/>
 				</label>
@@ -77,7 +78,7 @@ const Registro = () => {
 					<input
 						name='correo'
 						type='email'
-						required={true}
+						required
 						className='p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
 					/>
 				</label>
@@ -86,7 +87,7 @@ const Registro = () => {
 					<input
 						name='password'
 						type='password'
-						required={true}
+						required
 						className='p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
 					/>
 				</label>
@@ -95,7 +96,7 @@ const Registro = () => {
 						label='Rol deseado'
 						options={Enum_Tusuario}
 						name='tusuario'
-						required={true}
+						required
 					/>
 				</div>
 			</form>

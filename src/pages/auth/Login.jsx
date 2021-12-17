@@ -1,20 +1,21 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useFormData from 'hooks/useFormData';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from 'graphql/auth/mutations';
 import { useAuth } from 'context/authContext';
-import { useNavigate } from 'react-router-dom';
-import ButtonLoading from '../../components/ButtonLoading';
-import Imgbannerlogo from '../../media/bannerlogo.png';
+import ButtonLoading from 'components/ButtonLoading';
+import Imgbannerlogo from 'media/bannerlogo.png';
 
 const Login = () => {
 	const navigate = useNavigate();
 	const { setToken } = useAuth();
 	const { form, formData, updateFormData } = useFormData();
 
-	const [login, { data: dataMutation, loading: mutationLoading }] =
-		useMutation(LOGIN);
+	// eslint-disable-next-line prettier/prettier
+	const [login, { data: dataMutation, loading: mutationLoading }] = useMutation(
+		LOGIN
+	);
 
 	const submitForm = (e) => {
 		e.preventDefault();
@@ -36,7 +37,7 @@ const Login = () => {
 	return (
 		<div className='flex flex-col items-center min-h-screen px-4 py-2 bg-white sm:px-6 lg:px-8'>
 			<div className='flex flex-col items-center w-full'>
-				<img src={Imgbannerlogo} alt='Bannerlogo' className='m-2 w-1/3'></img>
+				<img src={Imgbannerlogo} alt='Bannerlogo' className='m-2 w-1/3' />
 			</div>
 			<div className='w-full max-w-md space-y-8'>
 				<form
@@ -53,7 +54,7 @@ const Login = () => {
 								name='correo'
 								type='email'
 								autoComplete='correo'
-								required={true}
+								required
 								className='w-full p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
 							/>
 						</div>
@@ -64,7 +65,7 @@ const Login = () => {
 								name='password'
 								type='password'
 								autoComplete='current-password'
-								required={true}
+								required
 								className='w-full p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
 							/>
 						</div>

@@ -4,17 +4,16 @@ import ButtonLoading from 'components/ButtonLoading';
 import useFormData from 'hooks/useFormData';
 import { toast } from 'react-toastify';
 import { EDITAR_USUARIO } from 'graphql/usuarios/mutations';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import ReactLoading from 'react-loading';
-import Banner from '../../media/banner-perfil.png';
 import { useUser } from 'context/userContext';
+import Banner from 'media/banner-perfil.png';
 
 const Perfil = () => {
 	const navigate = useNavigate();
 	const { userData } = useUser();
 	const { form, formData, updateFormData } = useFormData(null);
-	const _id = userData._id;
-	console.log(_id);
+	const { _id } = userData;
 
 	const [
 		editarUsuario,
@@ -56,7 +55,7 @@ const Perfil = () => {
 	return (
 		<div className='flex flex-col items-center min-h-screen py-2 bg-white'>
 			<div>
-				<img src={Banner} alt='Usuarios' className='w-full mb-10 h-30'></img>
+				<img src={Banner} alt='Usuarios' className='w-full mb-10 h-30' />
 			</div>
 			<form
 				ref={form}
@@ -69,7 +68,7 @@ const Perfil = () => {
 					<input
 						name='nombres'
 						type='text'
-						required={true}
+						required
 						defaultValue={userData.nombres}
 						className='p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
 					/>
@@ -79,7 +78,7 @@ const Perfil = () => {
 					<input
 						name='apellidos'
 						type='text'
-						required={true}
+						required
 						defaultValue={userData.apellidos}
 						className='p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
 					/>
@@ -89,7 +88,7 @@ const Perfil = () => {
 					<input
 						name='cedula'
 						type='text'
-						required={true}
+						required
 						defaultValue={userData.cedula}
 						className='p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
 					/>
@@ -99,7 +98,7 @@ const Perfil = () => {
 					<input
 						name='correo'
 						type='email'
-						required={true}
+						required
 						defaultValue={userData.correo}
 						className='p-2 m-2 bg-white border-2 border-t-4 border-gray-300 rounded-md shadow-inner'
 					/>

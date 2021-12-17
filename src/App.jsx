@@ -16,15 +16,15 @@ import {
 	InMemoryCache,
 	createHttpLink,
 } from '@apollo/client';
-import AdminLayout from './Layouts/admin';
-import { UserContext } from './context/userContext.js';
 import { setContext } from '@apollo/client/link/context';
-import { AuthContext } from './context/authContext.js';
-import EditarUsuario from './pages/admin/EditarUsuarios.jsx';
-import EditarInscripciones from './pages/admin/EditarInscripciones.jsx';
-import EditarAvances from './pages/admin/EditarAvances.jsx';
 import jwt_decode from 'jwt-decode';
-import RutaPrivada from './components/RutaPrivada';
+import AdminLayout from 'Layouts/admin';
+import { UserContext } from 'context/userContext';
+import { AuthContext } from 'context/authContext';
+import EditarUsuario from 'pages/admin/EditarUsuarios';
+import EditarInscripciones from 'pages/admin/EditarInscripciones';
+import EditarAvances from 'pages/admin/EditarAvances';
+import RutaPrivada from 'components/RutaPrivada';
 import 'styles/styles.css';
 import 'styles/tabla.css';
 
@@ -53,8 +53,8 @@ function App() {
 	const [userData, setUserData] = useState({});
 	const [authToken, setAuthToken] = useState('');
 
-	const setToken = (token) => {
-		console.log('set token', token);
+	// eslint-disable-next-line prettier/prettier
+	const setToken = token => {
 		setAuthToken(token);
 		if (token) {
 			localStorage.setItem('token', JSON.stringify(token));
