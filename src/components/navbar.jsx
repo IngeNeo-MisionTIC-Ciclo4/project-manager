@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from 'context/authContext';
-import ComponentePrivado from 'ComponentePrivado';
+import ComponentePrivado from 'components/ComponentePrivado';
 
 const navbar = () => (
 	<nav className='flex justify-center w-full px-5 bg-yellow-600 navbar menu'>
