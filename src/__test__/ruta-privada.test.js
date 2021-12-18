@@ -24,7 +24,7 @@ it('Renderiza cuando cumple todos los parametros', () => {
 			</RutaPrivada>
 		</UserContext.Provider>
 	);
-	expect(screen.getByTestId('Autorizado2')).toHaveTextContent(
+	expect(screen.getByTestId('Autorizado')).toHaveTextContent(
 		'Este es el children'
 	);
 });
