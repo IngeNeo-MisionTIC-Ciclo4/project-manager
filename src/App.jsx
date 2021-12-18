@@ -24,7 +24,7 @@ import { AuthContext } from 'context/authContext';
 import EditarUsuario from 'pages/admin/EditarUsuarios';
 import EditarInscripciones from 'pages/admin/EditarInscripciones';
 import EditarAvances from 'pages/admin/EditarAvances';
-import RutaPrivada from './components/RutaPrivada';
+import RutaPrivada from 'components/RutaPrivada';
 import 'styles/styles.css';
 import 'styles/tabla.css';
 
