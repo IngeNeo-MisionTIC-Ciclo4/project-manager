@@ -17,10 +17,7 @@ const RutaPrivada = ({ listaRoles, children }) => {
 	}
 	// En caso de no cumplir con el rol mostramos una imagen de acceso no autorizado
 	return (
-		<div
-			data-testid='noAutorizado1'
-			className='flex flex-col items-center justify-center'
-		>
+		<div className='flex flex-col items-center justify-center'>
 			{' '}
 			<img
 				data-testid='noAutorizado'

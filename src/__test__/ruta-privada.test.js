@@ -7,7 +7,7 @@ afterEach(cleanup);
 
 it('Renderiza si no esta autorizados o no se encuentran en la lista de roles', () => {
 	render(
-		<UserContext.Provider value={{ userData: { tusuario: 'Lider' } }}>
+		<UserContext.Provider value={{ userData: { tusuario: 'Estudiante' } }}>
 			<RutaPrivada listaRoles={['Administrador']}>
 				<div>Este es el children</div>
 			</RutaPrivada>
