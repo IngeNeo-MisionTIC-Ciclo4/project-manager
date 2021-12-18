@@ -93,7 +93,7 @@ const Proyecto = () => {
 				className='p-5 space-y-2 bg-white w-1/2'
 			>
 				<div className='grid grid-cols-3 gap-5 text-center rounded-md' />
-				<div className='flex grid flex-col grid-cols-2 gap-5'>
+				<div className='grid flex-col grid-cols-2 gap-5'>
 					<label htmlFor='nombre' className='mx-2 font-semibold'>
 						{' '}
 						Nombre proyecto
@@ -115,7 +115,7 @@ const Proyecto = () => {
 						/>
 					</label>
 				</div>
-				<div className='flex grid flex-col grid-cols-1 mx-2 font-semibold'>
+				<div className='grid flex-col grid-cols-1 mx-2 font-semibold'>
 					<DropDown
 						label='Líder'
 						options={listaUsuarios}
@@ -185,7 +185,7 @@ const Objetivos = () => {
 const FormObjetivo = ({ id }) => {
 	const { eliminarObjetivo } = useObj();
 	return (
-		<div className='flex grid flex-col items-center grid-cols-3 gap-2'>
+		<div className='grid flex-col items-center grid-cols-3 gap-2'>
 			<label>
 				{' '}
 				Descripción

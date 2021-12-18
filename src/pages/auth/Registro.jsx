@@ -39,7 +39,7 @@ const Registro = () => {
 			<div className='w-full max-w-md space-y-8' />
 
 			<form
-				className='flex flex-col items-center mt-4 grid grid-cols-2'
+				className='items-center mt-4 grid grid-cols-2'
 				onSubmit={submitForm}
 				onChange={updateFormData}
 				ref={form}
